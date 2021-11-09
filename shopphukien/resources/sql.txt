@@ -1,0 +1,42 @@
+CREATE TABLE NguoiDung(
+id_user char(8) Primary key not null,
+hoten nvarchar(250) not null,
+email varchar(255) not null,
+password varchar(150) not null   
+);
+
+CREATE TABLE Sanpham(
+masp char(8) not null,
+maloaisp char(8) not null,
+tensp nvarchar(250) not null,
+motasp varchar(450),
+hinhanh varchar(250), 
+dvt nvarchar(150),   
+dongia float,
+giakm float,
+tgtao datetime,
+tgcapnhat datetime,
+PRIMARY KEY(masp,maloaisp)
+);
+
+CREATE TABLE Loaisp(
+maloaisp char(8) not null,
+tenLsp nvarchar(250) not null,
+motaLsp varchar(450),
+hinhanhLSP varchar(250), 
+tgtao datetime,
+tgcapnhat datetime,
+PRIMARY KEY(maloaisp)
+);
+
+CREATE TABLE Hoadon(
+maHD char(8) not null,
+id_user char(8) not null,
+ngaymua datetime,
+PRIMARY KEY(mahd)
+);
+
+
+
+INSERT INTO Sanpham Values 
+('sp000001','LSP00001',N'Buộc tóc scrunchies Fruit strawberries sweet','Dây cột tóc cho nữ','product01.jfif','Cái','15000','12000',NOW(),NOW());
