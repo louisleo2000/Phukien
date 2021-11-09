@@ -109,13 +109,15 @@
                         <div class="section-nav">
                             <ul class="section-tab-nav tab-nav">
                                 <li class="active"><a data-toggle="tab" href="#tab1">Phụ kiện tóc</a></li>
-                                <li><a data-toggle="tab" href="#tab1">Phụ kiện thời trang</a></li>
-                                <li><a data-toggle="tab" href="#tab1">Gấu bông & gối</a></li>
-                                <li><a data-toggle="tab" href="#tab1">Túi xách</a></li>
+                                <li><a data-toggle="tab" href="##tab2">Phụ kiện thời trang</a></li>
+                                <li><a data-toggle="tab" href="#tab3">Gấu bông & gối</a></li>
+                                <li><a data-toggle="tab" href="#tab4">Túi xách</a></li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
+
                 <!-- /section title -->
 
                 <!-- Products tab & slick -->
@@ -273,6 +275,155 @@
                                 <div id="slick-nav-1" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab -->
+                            <div id="tab3" class="tab-pane">
+                                <div class="products-slick" data-nav="#slick-3">
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="./img/product01.jfif" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">-30%</span>
+                                                <span class="Mới">Mới</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Loại sản phẩm nè</p>
+                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
+                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="./img/product02.jfif" alt="">
+                                            <div class="product-label">
+                                                <span class="Mới">Mới</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Loại sản phẩm nè</p>
+                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
+                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="./img/product03.jfif" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">-30%</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Loại sản phẩm nè</p>
+                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
+                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+                                            <div class="product-rating">
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="./img/product04.jfif" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Loại sản phẩm nè</p>
+                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
+                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="./img/product05.jfif" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <p class="product-category">Loại sản phẩm nè</p>
+                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
+                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    <!-- /product -->
+                                </div>
+                                <div id="slick-3" class="products-slick-nav"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
