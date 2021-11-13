@@ -9,8 +9,8 @@ CREATE TABLE Sanpham(
 masp char(8) not null,
 maloaisp char(8) not null,
 tensp nvarchar(250) not null,
-motasp varchar(450),
-hinhanh varchar(250), 
+motasp nvarchar(450),
+hinhanh nvarchar(250), 
 dvt nvarchar(150),   
 dongia float,
 giakm float,
@@ -39,4 +39,5 @@ PRIMARY KEY(mahd)
 
 
 INSERT INTO Sanpham Values 
-('sp000001','LSP00001',N'Buộc tóc scrunchies Fruit strawberries sweet','Dây cột tóc cho nữ','product01.jfif','Cái','15000','12000',NOW(),NOW());
+('sp000001','LSP00001',N'Buộc tóc scrunchies Fruit strawberries sweet', N'Dây cột tóc cho nữ','product01.jfif', N'cái','15000','12000',NOW(),NOW()),
+('sp000002','LSP00001', N'Buộc tóc scrunchies trái tim', N'Dây cột tóc hình trái tim cute cho nữ','product01.jfif', N'cái','15000','12000',NOW(),NOW()),

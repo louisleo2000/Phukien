@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/products', function () {
     return view('products');
 });
@@ -25,3 +25,6 @@ Route::get('/product-details', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+
+Route::get('admin', [Admin::class, 'index']);
+Route::post('addsp', [Admin::class, 'addsp']);
