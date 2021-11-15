@@ -1,9 +1,14 @@
 CREATE TABLE NguoiDung(
 id_user char(8) Primary key not null,
-hoten nvarchar(250) not null,
-email varchar(255) not null,
-password varchar(150) not null   
+HoTen nvarchar(250) not null,
+Email varchar(255) not null,
+Password varchar(150) not null   
 );
+INSERT INTO NguoiDung VALUES
+('ID001', 'Hồ Thị Ái Uyên', 'Hothiaiuyen2309@gmail.com', 'uyencute123'),
+('ID002', 'Lưu Hoàng Long', 'luuhoanglong0508@gmail.com', 'longcute123'),
+('ID003', 'Chu Thị Thu Hải', 'chuthithuhai@gmail.com', 'uyencute123'),
+('ID004', 'Phạm Nguyễn Thanh Hui', 'thanhhui0201@gmail.com', 'longcute123')
 
 CREATE TABLE Sanpham(
 masp char(8) not null,
@@ -18,6 +23,34 @@ tgtao datetime,
 tgcapnhat datetime,
 PRIMARY KEY(masp,maloaisp)
 );
+INSERT INTO Sanpham VALUES
+('sp000001','LSP00001',N'Buộc tóc scrunchies Fruit strawberries sweet', N'Dây cột tóc cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/psCT/20210531/32208378/Buoc_toc_scrunchies_Fruit_strawberries_sweet_(21052240_hoc).jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000002','LSP00001', N'Buộc tóc scrunchies trái tim', N'Dây cột tóc hình trái tim cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/psCT/20210422/31075025/Buoc_toc_MJ_scrunchies_Fruit_dau_tay_sweet_summer_(21041180_xx).jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000003','LSP00001',N'Buộc tóc set5 scrunchies Gấu thỏ and else', N'Dây cột tóc cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210613/21050319_XX.JPG', N'cái','65000','55000',NOW(),NOW()),
+('sp000004','LSP00001', N'Buộc tóc scrunchies scratched fabric nơ', N'Dây cột tóc cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210105/20122162_1000x1000.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000005','LSP00001',N'Buộc tóc scrunchies Tai mèo hai màu', N'Dây cột tóc cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/psCT/20201208/27198863/Buoc_toc_MJ_scrunchies_Tai_meo_hai_mau_(20120143_pp).jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000006','LSP00002', N'Kẹp tóc càng cua Baby bear heart', N'Kẹp càng cua cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210716/21071000_XX.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000007','LSP00002',N'Kẹp tóc MJ A snowflake đính đá', N'Kẹp càng cua cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210614/21050128_SV.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000008','LSP00002', N'Kẹp tóc MJ Four smiley faces vòng tròn đính đá', N'Kẹp càng cua cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210614/21050123_GO.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000009','LSP00002',N'Kẹp tóc càng cua chữ nhật paint splash pattern', N'Kẹp càng cua cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210424/21042009_1000x1000.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000010','LSP00002', N'Kẹp tóc càng cua Basic one color mini', N'Kẹp càng cua cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210409/21041000_xx.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000011','LSP00003',N'Băng đô bờm Nơ phối lưới ngọc trai', N'Băng đô cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210323/21022197_1000x1000.JPG', N'cái','35000','30000',NOW(),NOW()),
+('sp000012','LSP00003', N'Băng đô make up Fruit orange cam carrot', N'Băng đô cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210324/21020023_OR_1000x1000.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000013','LSP00003',N'Băng đô make up idol BTS cartoon baby', N'Băng đô cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210114/20121344_HOC_1000x1000.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000014','LSP00003', N'Băng đô bờm Tai gấu baby bear', N'Băng đô cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210203/20120483_1000x1000.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000015','LSP00003',N'Băng đô make up Thỏ bờ mi', N'Băng đô cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210105/20120199_wh.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000016','LSP00004', N'Vòng tay MJ xích màu Cinnamoroll cute', N'Vòng tay cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210927/21080032.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000017','LSP00004',N'Vòng tay charm Butterfly hoa anh đào', N'Vòng tay cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210614/21050174_X.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000018','LSP00004', N'Vòng tay charm Thỏ đính đá big star', N'Vòng tay cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210614/21056017_XX.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000019','LSP00004',N'Vòng tay mạ bạc Trái tim viền dập nổi', N'Vòng tay cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/psCT/20210317/29855725/Vong_tay_ma_bac_Trai_tim_vien_dap_noi_(21032055_sv).jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000020','LSP00004',N'Vòng tay MJ Double pearl ngọc trai', N'Vòng tay cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210401/21021111_GO_1000x1000.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000021','LSP00005',N'Đồng hồ MJ dây silicone Lovely Rabbit ', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210325/21012274_lb4.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000022','LSP00005',N'Đồng hồ MJ dây silicone Mira little girl ', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210218/21010254_XX_1000x1000.JPG', N'cái','15000','12000',NOW(),NOW()),
+('sp000023','LSP00005',N'Đồng hồ MJ dây vải mặt tròn white basic', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210325/21022025_be4_1000x1000.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000024','LSP00005',N'Đồng hồ MJ dây vải sọc Doukou watch', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210325/21012282_BL4_1000x1000.jpg', N'cái','15000','12000',NOW(),NOW()),
+('sp000025','LSP00005',N'Đồng hồ MJ Shhors Sport mặt tròn ', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210228/21012276_1000x1000.JPG', N'cái','15000','12000',NOW(),NOW())
+
+
 
 CREATE TABLE Loaisp(
 maloaisp char(8) not null,
@@ -29,6 +62,14 @@ tgcapnhat datetime,
 PRIMARY KEY(maloaisp)
 );
 
+INSERT INTO LOAISP  ('MaLSP', 'TenLSP', 'MoTa', 'HinhAnhLSP', 'tgtao', 'tgcapnhat') VALUES
+('LSP001','Scrunchies', 'Scrunchie là một loại dây chun buộc tóc được bọc vải bên ngoài, thường có kích cỡ lớn và phồng lên như một bông hoa','https://storage.googleapis.com/ops-shopee-files-live/live/shopee-blog/2020/05/cach-lam-day-buoc-toc-scrunchies-2.jpg' , NOW(),NOW()),
+('LSP002','Kẹp tóc','Kẹp tóc thời trang với thiết kế đẹp, mẫu mới, đa dạng, chất lượng cao cấp. Nhiều mẫu kẹp búi tóc công sở, kẹp tóc càng cua, kẹp tóc mái, kẹp bấm, kẹp dọc, ..','https://cf.shopee.vn/file/fa418f6fad4ad32d570b646dd65935ae', NOW(),NOW()),
+('LSP003','Băng đô', 'Băng đô là một phụ kiện thời trang, cụ thể hơn là phụ kiện tóc, đeo ở tóc hoặc quanh trán, thường để giữ tóc cách xa mặt hoặc mắt','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20211112/21112046_WH.JPG',NOW(),NOW() ),
+('LSP004','Vòng tay', 'Vòng đeo tay là một loại trang sức đeo ở cổ tay. Vòng đeo tay có thể được làm từ rất nhiều loại chất liệu khác nhau dành cho cả nam và nữ được sử dụng từ lâu trong lịch sử. Đây là một loại trang sức được cấu tạo cơ bản bằng một chuỗi hay một dãi đeo quanh cổ tay để làm đẹp.', 'https://eropi.com/media/wysiwyg/tin-tuc-4/vong-tay-va-lac-tay-co-khac-nhau-khong_8_.jpg', NOW(),NOW()),
+('LSP005','Đồng hồ', 'Phái đẹp ngày càng có xu hướng lựa chọn phụ kiện là đồng hồ, bởi đây là món phụ kiện không hề kén trang phục, và hầu như phù hợp với mọi hoàn cảnh. Chỉ với một chiếc đồng hồ đeo tay cũng đã đủ tạo điểm nhấn tinh tế cho phong cách thời trang và vẻ ngoài thanh lịch cho bất cứ chị em nào. ', 'https://cf.shopee.vn/file/d4756a4f3b30114409279bc4e2a3588e', NOW(),NOW())
+
+
 CREATE TABLE Hoadon(
 maHD char(8) not null,
 id_user char(8) not null,
@@ -38,6 +79,5 @@ PRIMARY KEY(mahd)
 
 
 
-INSERT INTO Sanpham Values 
-('sp000001','LSP00001',N'Buộc tóc scrunchies Fruit strawberries sweet', N'Dây cột tóc cho nữ','product01.jfif', N'cái','15000','12000',NOW(),NOW()),
-('sp000002','LSP00001', N'Buộc tóc scrunchies trái tim', N'Dây cột tóc hình trái tim cute cho nữ','product01.jfif', N'cái','15000','12000',NOW(),NOW()),
+
+
