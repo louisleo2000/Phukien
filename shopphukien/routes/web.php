@@ -25,6 +25,8 @@ Route::get('/product-details', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
-
+Route::get('/about', function () {
+    return view('gioithieu');
+});
 Route::get('admin', [Admin::class, 'index']);
 Route::post('addsp', [Admin::class, 'addsp']);

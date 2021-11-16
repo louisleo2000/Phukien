@@ -1,46 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <title>Phu kien</title>
-
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css" />
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
-
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
-
-    <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
-    <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-
-</head>
-
+@include('header')
 
 <body>
-    @include('header')
+
 
     <!-- SECTION -->
     <div class="section">
@@ -69,7 +33,7 @@
                             <img src="./img/shop03.jpg" alt="">
                         </div>
                         <div class="shop-body">
-                            <h3>Bộ sưu tập<br>Thú bông & Gối</h3>
+                            <h3>Bộ sưu tập<br>Phụ kiện thời trang</h3>
                             <a href="#" class="cta-btn">Xem ngay <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -80,10 +44,10 @@
                 <div class="col-md-4 col-xs-6">
                     <div class="shop">
                         <div class="shop-img">
-                            <img src="./img/shop02.jpg" alt="">
+                            <img src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/albumCT/9007/biaitb.jpg" alt="">
                         </div>
                         <div class="shop-body">
-                            <h3>Bộ sưu tập<br>Túi xách</h3>
+                            <h3>Bộ sưu tập<br>Trang sức</h3>
                             <a href="#" class="cta-btn">Xem ngay <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -111,8 +75,8 @@
                             <ul class="section-tab-nav tab-nav">
                                 <li class="active"><a data-toggle="tab" href="#tab1">Phụ kiện tóc</a></li>
                                 <li><a data-toggle="tab" href="##tab2">Phụ kiện thời trang</a></li>
-                                <li><a data-toggle="tab" href="#tab3">Gấu bông & gối</a></li>
-                                <li><a data-toggle="tab" href="#tab4">Túi xách</a></li>
+                                <li><a data-toggle="tab" href="#tab3">Trang sức</a></li>
+
                             </ul>
 
                         </div>
@@ -132,7 +96,7 @@
                                     <!-- product -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/{{$item->hinhanh}}" alt="">
+                                            <img src="{{$item->hinhanh}}" alt="">
                                             <div class="product-label">
                                                 <span class="sale">-30%</span>
                                                 <span class="Mới">Mới</span>
