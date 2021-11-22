@@ -62,7 +62,7 @@ tgcapnhat datetime,
 PRIMARY KEY(maloaisp)
 );
 
-INSERT INTO LOAISP  ('MaLSP', 'TenLSP', 'MoTa', 'HinhAnhLSP', 'tgtao', 'tgcapnhat') VALUES
+INSERT INTO LOAISP VALUES
 ('LSP001','Scrunchies', 'Scrunchie là một loại dây chun buộc tóc được bọc vải bên ngoài, thường có kích cỡ lớn và phồng lên như một bông hoa','https://storage.googleapis.com/ops-shopee-files-live/live/shopee-blog/2020/05/cach-lam-day-buoc-toc-scrunchies-2.jpg' , NOW(),NOW()),
 ('LSP002','Kẹp tóc','Kẹp tóc thời trang với thiết kế đẹp, mẫu mới, đa dạng, chất lượng cao cấp. Nhiều mẫu kẹp búi tóc công sở, kẹp tóc càng cua, kẹp tóc mái, kẹp bấm, kẹp dọc, ..','https://cf.shopee.vn/file/fa418f6fad4ad32d570b646dd65935ae', NOW(),NOW()),
 ('LSP003','Băng đô', 'Băng đô là một phụ kiện thời trang, cụ thể hơn là phụ kiện tóc, đeo ở tóc hoặc quanh trán, thường để giữ tóc cách xa mặt hoặc mắt','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20211112/21112046_WH.JPG',NOW(),NOW() ),
