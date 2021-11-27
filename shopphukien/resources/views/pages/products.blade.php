@@ -20,7 +20,7 @@
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Tất cả sản phẩm</a></li>
                         <li><a href="#">Phụ kiện</a></li>
-                        <li class="active">Phụ kiện thời trang (227,490 sản phẩm)</li>
+                        <li class="active">Phụ kiện thời trang ({{$listproducts->total()}} sản phẩm)</li>
                     </ul>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                                 <label for="category-2">
                                     <span></span>
                                     Phụ kiện thời trang
-                                    <small>(740)</small>
+                                    <small>({{$listproducts->total()}})</small>
                                 </label>
                             </div>
 
@@ -246,20 +246,21 @@
 
                     <!-- store products -->
                     <div class="row">
+                        @foreach ($listproducts as $item)
                         <!-- product -->
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <div class="product-img">
-                                    <img src="./img/product01.jfif" alt="">
+                                    <img src="{{$item->hinhanh}}" alt="">
                                     <div class="product-label">
                                         <span class="sale">-30%</span>
                                         <span class="Mới">Mới</span>
                                     </div>
                                 </div>
                                 <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm</p>
-                                    <h3 class="product-name"><a href="#">Tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+
+                                    <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                    <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ <del class="product-old-price">{{number_format($item->dongia,0, "," ,  ".")}}đ</del></h4>
                                     <div class="product-rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -279,121 +280,23 @@
                             </div>
                         </div>
                         <!-- /product -->
-
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product02.jfif" alt="">
-                                    <div class="product-label">
-                                        <span class="Mới">Mới</span>
-                                    </div>
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm</p>
-                                    <h3 class="product-name"><a href="#">Tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                    </div>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /product -->
-
-                        <div class="clearfix visible-sm visible-xs"></div>
-
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product03.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm</p>
-                                    <h3 class="product-name"><a href="#">Tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                    <div class="product-rating">
-                                    </div>
-                                    <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                    </div>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /product -->
-
-                        <div class="clearfix visible-lg visible-md"></div>
-
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product04.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm</p>
-                                    <h3 class="product-name"><a href="#">Tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                    <div class="product-rating">
-                                    </div>
-                                    <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                    </div>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /product -->
-
-                        <div class="clearfix visible-sm visible-xs"></div>
-
-                        <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="./img/product05.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm</p>
-                                    <h3 class="product-name"><a href="#">Tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                    <div class="product-rating">
-                                    </div>
-                                    <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                    </div>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /product -->
+                        @endforeach
                     </div>
+                    <ul class="pagination pagination-sm m-t-none m-b-none">
+                        @if(!$listproducts->onFirstPage())
+                        <li><a href="{{$listproducts->previousPageUrl()}}"><i class="fa fa-chevron-left"></i></a></li>
+                        @endif
+                        @foreach (range(1, $listproducts->lastPage()) as $number)
+                        @if($number == $listproducts->currentPage())
+                        <li class="page-item active"><a href="products?page={{$number}}">{{$number}}</a></li>
+                        @else
+                        <li class="page-item "><a href="products?page={{$number}}">{{$number}}</a></li>
+                        @endif
+                        @endforeach
+                        @if($listproducts->hasMorePages())
+                        <li><a href="{{$listproducts->nextPageUrl()}}"><i class="fa fa-chevron-right"></i></a></li>
+                        @endif
+                    </ul>
                 </div>
             </div>
         </div>

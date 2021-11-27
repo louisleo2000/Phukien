@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Sanpham;
 
 class HomeController extends Controller
 {
     function index()
     {
         $products = array(
-            'list' => DB::table('sanpham')->get()
+            'listproducts' => Sanpham::all()
         );
-        return view('home', $products);
+        return view('pages.home', $products);
     }
 }

@@ -5,7 +5,6 @@
 
 <body>
 
-
     <!-- SECTION -->
     <div class="section">
         <!-- container -->
@@ -89,21 +88,22 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="products-tabs">
-                            <!-- tab -->
+                            <!-- tab1 -->
                             <div id="tab1" class="tab-pane active">
                                 <div class="products-slick" data-nav="#slick-nav-1">
-                                    @foreach ($list as $item)
+                                    @foreach ($listproducts as $item)
+                                    @if($item->maloaisp == 'LSP00001' ||$item->maloaisp == 'LSP00002' || $item->maloaisp == 'LSP00003')
                                     <!-- product -->
                                     <div class="product">
                                         <div class="product-img">
                                             <img src="{{$item->hinhanh}}" alt="">
                                             <div class="product-label">
-                                                <span class="sale">-30%</span>
+                                                <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
                                                 <span class="Mới">Mới</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Loại sản phẩm nè</p>
+
                                             <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
                                             <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
                                                 <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
@@ -125,27 +125,75 @@
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
                                         </div>
                                     </div>
+                                    @endif
                                     <!-- /product -->
                                     @endforeach
                                 </div>
                                 <div id="slick-nav-1" class="products-slick-nav"></div>
                             </div>
-                            <!-- /tab -->
+                            <!-- /tab2 -->
+                            <div id="tab2" class="tab-pane">
+                                <div class="products-slick" data-nav="#slick-2">
+                                    @foreach ($listproducts as $item)
+                                    @if( $item->maloaisp == 'LSP00005'|| $item->maloaisp == 'LSP00006')
+                                    <!-- product -->
+                                    <div class="product">
+                                        <div class="product-img">
+                                            <img src="{{$item->hinhanh}}" alt="">
+                                            <div class="product-label">
+                                                <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
+                                                <span class="Mới">Mới</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-body">
+
+                                            <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                            <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
+                                                <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
+                                            </h4>
+                                            <div class="product-rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <div class="product-btns">
+                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+                                    @endif
+                                    <!-- /product -->
+                                    @endforeach
+                                </div>
+                                <div id="slick-2" class="products-slick-nav"></div>
+                            </div>
+                            <!-- /tab3 -->
                             <div id="tab3" class="tab-pane">
                                 <div class="products-slick" data-nav="#slick-3">
+                                    @foreach ($listproducts as $item)
+                                    @if($item->maloaisp == 'LSP00004')
                                     <!-- product -->
                                     <div class="product">
                                         <div class="product-img">
-                                            <img src="./img/product01.jfif" alt="">
+                                            <img src="{{$item->hinhanh}}" alt="">
                                             <div class="product-label">
-                                                <span class="sale">-30%</span>
+                                                <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
                                                 <span class="Mới">Mới</span>
                                             </div>
                                         </div>
                                         <div class="product-body">
-                                            <p class="product-category">Loại sản phẩm nè</p>
-                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
+
+                                            <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                            <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
+                                                <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
+                                            </h4>
                                             <div class="product-rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -163,120 +211,9 @@
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
                                         </div>
                                     </div>
+                                    @endif
                                     <!-- /product -->
-
-                                    <!-- product -->
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="./img/product02.jfif" alt="">
-                                            <div class="product-label">
-                                                <span class="Mới">Mới</span>
-                                            </div>
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">Loại sản phẩm nè</p>
-                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
-
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                            </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
-                                    </div>
-                                    <!-- /product -->
-
-                                    <!-- product -->
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="./img/product03.jfif" alt="">
-                                            <div class="product-label">
-                                                <span class="sale">-30%</span>
-                                            </div>
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">Loại sản phẩm nè</p>
-                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                            <div class="product-rating">
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
-
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                            </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
-                                    </div>
-                                    <!-- /product -->
-
-                                    <!-- product -->
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="./img/product04.jfif" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">Loại sản phẩm nè</p>
-                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
-
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                            </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
-                                    </div>
-                                    <!-- /product -->
-
-                                    <!-- product -->
-                                    <div class="product">
-                                        <div class="product-img">
-                                            <img src="./img/product05.jfif" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <p class="product-category">Loại sản phẩm nè</p>
-                                            <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
-
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                            </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
-                                    </div>
-                                    <!-- /product -->
+                                    @endforeach
                                 </div>
                                 <div id="slick-3" class="products-slick-nav"></div>
                             </div>
