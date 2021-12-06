@@ -248,37 +248,40 @@
                     <div class="row">
                         @foreach ($listproducts as $item)
                         <!-- product -->
-                        <div class="col-md-4 col-xs-6">
-                            <div class="product">
-                                <div class="product-img">
-                                    <img src="{{$item->hinhanh}}" alt="">
-                                    <div class="product-label">
-                                        <span class="sale">-30%</span>
-                                        <span class="Mới">Mới</span>
-                                    </div>
-                                </div>
-                                <div class="product-body">
+                        <a href="{{URL::to('/product-details/'.$item->masp)}}">
 
-                                    <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
-                                    <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ <del class="product-old-price">{{number_format($item->dongia,0, "," ,  ".")}}đ</del></h4>
-                                    <div class="product-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                            <div class="col-md-4 col-xs-6">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="{{$item->hinhanh}}" alt="">
+                                        <div class="product-label">
+                                            <span class="sale">-30%</span>
+                                            <span class="Mới">Mới</span>
+                                        </div>
                                     </div>
-                                    <div class="product-btns">
-                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
+                                    <div class="product-body">
 
-                                        <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                        <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                        <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ <del class="product-old-price">{{number_format($item->dongia,0, "," ,  ".")}}đ</del></h4>
+                                        <div class="product-rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="product-btns">
+                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
+
+                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         <!-- /product -->
                         @endforeach
                     </div>

@@ -95,35 +95,37 @@
                                     @if($item->maloaisp == 'LSP00001' ||$item->maloaisp == 'LSP00002' || $item->maloaisp == 'LSP00003')
                                     <!-- product -->
                                     <div class="product">
-                                        <div class="product-img">
-                                            <img src="{{$item->hinhanh}}" alt="">
-                                            <div class="product-label">
-                                                <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
-                                                <span class="Mới">Mới</span>
+                                        <a href="{{URL::to('/product-details/'.$item->masp)}}">
+                                            <div class="product-img">
+                                                <img src="{{$item->hinhanh}}" alt="">
+                                                <div class="product-label">
+                                                    <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
+                                                    <span class="Mới">Mới</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="product-body">
+                                            <div class="product-body">
 
-                                            <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
-                                            <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
-                                                <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
-                                            </h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+                                                <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                                <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
+                                                    <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
+                                                </h4>
+                                                <div class="product-rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="product-btns">
+                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
 
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
+                                            <div class="add-to-cart">
+                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                            </div>
+                                        </a>
                                     </div>
                                     @endif
                                     <!-- /product -->
@@ -138,35 +140,37 @@
                                     @if( $item->maloaisp == 'LSP00005'|| $item->maloaisp == 'LSP00006')
                                     <!-- product -->
                                     <div class="product">
-                                        <div class="product-img">
-                                            <img src="{{$item->hinhanh}}" alt="">
-                                            <div class="product-label">
-                                                <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
-                                                <span class="Mới">Mới</span>
+                                        <a href="{{URL::to('/product-details/'.$item->masp)}}">
+                                            <div class="product-img">
+                                                <img src="{{$item->hinhanh}}" alt="">
+                                                <div class="product-label">
+                                                    <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
+                                                    <span class="Mới">Mới</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="product-body">
+                                            <div class="product-body">
 
-                                            <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
-                                            <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
-                                                <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
-                                            </h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+                                                <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                                <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
+                                                    <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
+                                                </h4>
+                                                <div class="product-rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="product-btns">
+                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
 
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
+                                            <div class="add-to-cart">
+                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                            </div>
+                                        </a>
                                     </div>
                                     @endif
                                     <!-- /product -->
@@ -181,35 +185,37 @@
                                     @if($item->maloaisp == 'LSP00004')
                                     <!-- product -->
                                     <div class="product">
-                                        <div class="product-img">
-                                            <img src="{{$item->hinhanh}}" alt="">
-                                            <div class="product-label">
-                                                <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
-                                                <span class="Mới">Mới</span>
+                                        <a href="{{URL::to('/product-details/'.$item->masp)}}">
+                                            <div class="product-img">
+                                                <img src="{{$item->hinhanh}}" alt="">
+                                                <div class="product-label">
+                                                    <span class="sale">{{$km = round(100-($item->dongia/$item->giakm*100))  }}%</span>
+                                                    <span class="Mới">Mới</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="product-body">
+                                            <div class="product-body">
 
-                                            <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
-                                            <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
-                                                <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
-                                            </h4>
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <div class="product-btns">
-                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
+                                                <h3 class="product-name"><a href="#">{{$item->tensp}}</a></h3>
+                                                <h4 class="product-price">{{number_format($item->giakm,0, "," , ".")}}đ
+                                                    <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->dongia,0, "," ,  ".")}}đ</del>
+                                                </h4>
+                                                <div class="product-rating">
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                                <div class="product-btns">
+                                                    <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp"> Yêu thích</span></button>
 
-                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                        </div>
+                                            <div class="add-to-cart">
+                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                            </div>
+                                        </a>
                                     </div>
                                     @endif
                                     <!-- /product -->

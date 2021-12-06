@@ -14,4 +14,11 @@ class ProductsController extends Controller
         );
         return view('pages.products', $products);
     }
+    function detailsProduct($product_id)
+    {
+        $products = array(
+            'product' => Sanpham::where('masp', '=', $product_id)->first()
+        );
+        return view('pages.product-detail', $products);
+    }
 }

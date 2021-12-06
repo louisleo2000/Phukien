@@ -39,19 +39,19 @@
                 <div class="col-md-5 col-md-push-2">
                     <div id="product-main-img">
                         <div class="product-preview">
-                            <img src="./img/product01.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="./img/product03.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="./img/product06.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="./img/product08.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -61,19 +61,19 @@
                 <div class="col-md-2  col-md-pull-5">
                     <div id="product-imgs">
                         <div class="product-preview">
-                            <img src="./img/product01.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="./img/product03.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="./img/product06.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
 
                         <div class="product-preview">
-                            <img src="./img/product08.jfif" alt="">
+                            <img src="{{$product->hinhanh}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <!-- Product details -->
                 <div class="col-md-5">
                     <div class="product-details">
-                        <h2 class="product-name">tên sản phẩm ở đây</h2>
+                        <h2 class="product-name">{{$product->tensp}}</h2>
                         <div>
                             <div class="product-rating">
                                 <i class="fa fa-star"></i>
@@ -94,10 +94,10 @@
                             <a class="review-link" href="#">10 Đánh giá | Thêm đánh giá của bạn</a>
                         </div>
                         <div>
-                            <h3 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h3>
+                            <h3 class="product-price">{{number_format($product->giakm,0, "," , ".")}}đ <del class="product-old-price">{{number_format($product->dongia,0, "," , ".")}}đ</del></h3>
                             <span class="product-available">In Stock</span>
                         </div>
-                        <p>Trần đời này có bao nhiêu sự cute hình như đều được đặt hết vào team quả bơ này rùi í các cậu ạ, tất thảy mọi đồ dùng mà có thêm hình những em bơ chinh chinh nhỏ nhắn này là muốn ôm hết về nhà lun. Cùng đắm chìm trong màu xanh xanh cute thích mê này nào các cậu </p>
+                        <p>{{$product->motasp}}</p>
 
                         <div class="product-options">
                             <label>
@@ -166,7 +166,7 @@
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>Trần đời này có bao nhiêu sự cute hình như đều được đặt hết vào team quả bơ này rùi í các cậu ạ, tất thảy mọi đồ dùng mà có thêm hình những em bơ chinh chinh nhỏ nhắn này là muốn ôm hết về nhà lun. Cùng đắm chìm trong màu xanh xanh cute thích mê này nào các cậu </p>
+                                        <p>{{$product->motasp}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -387,7 +387,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product01.jfif" alt="">
+                            <img src="{{ URL::asset('./img/product01.jfif')}}" alt="">
                             <div class="product-label">
                                 <span class="sale">-30%</span>
                             </div>
@@ -415,7 +415,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product02.jfif" alt="">
+                            <img src="{{ URL::asset('./img/product02.jfif')}}" alt="">
                             <div class="product-label">
                                 <span class="new">Mới</span>
                             </div>
@@ -450,7 +450,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product03.jfif" alt="">
+                            <img src="{{ URL::asset('./img/product03.jfif')}}" alt="">
                         </div>
                         <div class="product-body">
                             <p class="product-category">Loại sản phẩm</p>
@@ -480,7 +480,7 @@
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
                         <div class="product-img">
-                            <img src="./img/product04.jfif" alt="">
+                            <img src="{{ URL::asset('./img/product04.jfif')}}" alt="">
                         </div>
                         <div class="product-body">
                             <p class="product-category">Loại sản phẩm</p>
