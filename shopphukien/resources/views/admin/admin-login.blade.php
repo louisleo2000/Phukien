@@ -32,7 +32,7 @@
             <h2>Đăng nhập</h2>
 
             <form action="dashboard" method="post">
-                {{csrf_field()}}
+                @csrf
                 <input type="email" class="ggg" name="admin_email" placeholder="E-MAIL" required="">
                 <input type="password" class="ggg" name="admin_password" placeholder="PASSWORD" required="">
                 <span><input type="checkbox" />Nhớ đang nhập</span>
