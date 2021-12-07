@@ -63,7 +63,7 @@
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="/" class="logo">
-                                <img src="./img/logo.png" alt="" style="width: 65%;">
+                                <img src="{{ URL::asset('./img/logo.png') }}" alt="" style="width: 65%;">
                             </a>
                         </div>
                     </div>
@@ -73,12 +73,12 @@
                     <div class="col-md-6">
                         <div class="header-search">
                             <form>
-                                <select class="input-select">
+                                <!-- <select class="input-select">
                                     <option value="0">Sản phẩm</option>
                                     <option value="1">Category 01</option>
                                     <option value="1">Category 02</option>
-                                </select>
-                                <input class="input" placeholder="Nhập sản phẩm cần tìm">
+                                </select> -->
+                                <input class="input" style="border-top-left-radius:20px;border-bottom-left-radius:20px    ;" placeholder="Nhập sản phẩm cần tìm">
                                 <button class="search-btn">Tìm kiếm</button>
                             </form>
                         </div>

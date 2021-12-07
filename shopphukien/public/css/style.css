@@ -194,7 +194,7 @@ textarea.input {
 /*-- Select input --*/
 
 .input-select {
-    padding: 0px 15px;
+    /* padding: 0px 15px; */
     background: #fff;
     border: 2px solid #ffb0bd;
     height: 40px;
@@ -1504,7 +1504,7 @@ textarea.input {
 
 .product-details .product-name {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .product-details .product-rating {
@@ -1521,7 +1521,7 @@ textarea.input {
 }
 
 .product-details .review-link {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .product-details .product-price {
@@ -1553,7 +1553,7 @@ textarea.input {
 
 .product-details .product-options label {
     font-weight: 500;
-    font-size: 12px;
+    font-size: 16px;
     text-transform: uppercase;
     margin-right: 15px;
     margin-bottom: 0px;
@@ -1608,7 +1608,7 @@ textarea.input {
 .product-details .add-to-cart .qty-label {
     display: inline-block;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 16px;
     text-transform: uppercase;
     margin-right: 15px;
     margin-bottom: 0px;

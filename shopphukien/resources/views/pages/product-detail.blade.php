@@ -36,7 +36,7 @@
             <!-- row -->
             <div class="row">
                 <!-- Product main img -->
-                <div class="col-md-5 col-md-push-2">
+                <div class="col-md-6 ">
                     <div id="product-main-img">
                         <div class="product-preview">
                             <img src="{{$product->hinhanh}}" alt="">
@@ -58,7 +58,7 @@
                 <!-- /Product main img -->
 
                 <!-- Product thumb imgs -->
-                <div class="col-md-2  col-md-pull-5">
+                <!-- <div class="col-md-2  col-md-pull-5">
                     <div id="product-imgs">
                         <div class="product-preview">
                             <img src="{{$product->hinhanh}}" alt="">
@@ -76,11 +76,11 @@
                             <img src="{{$product->hinhanh}}" alt="">
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- /Product thumb imgs -->
 
                 <!-- Product details -->
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <div class="product-details">
                         <h2 class="product-name">{{$product->tensp}}</h2>
                         <div>
@@ -91,24 +91,19 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star-o"></i>
                             </div>
-                            <a class="review-link" href="#">10 Đánh giá | Thêm đánh giá của bạn</a>
+                            <a class="review-link" href="#">10 Đánh giá</a>
                         </div>
                         <div>
                             <h3 class="product-price">{{number_format($product->giakm,0, "," , ".")}}đ <del class="product-old-price">{{number_format($product->dongia,0, "," , ".")}}đ</del></h3>
                             <span class="product-available">In Stock</span>
                         </div>
-                        <p>{{$product->motasp}}</p>
+                      
 
                         <div class="product-options">
-                            <label>
-                                Kích thước
-                                <select class="input-select">
-                                    <option value="0">X</option>
-                                </select>
-                            </label>
+                           
                             <label>
                                 Màu sắc
-                                <select class="input-select">
+                                <select class="input-select" style="font-size:16px;">
                                     <option value="0">Xanh</option>
                                 </select>
                             </label>
