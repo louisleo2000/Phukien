@@ -29,7 +29,6 @@ Route::get('/checkout', function () {
 Route::get('/about', function () {
     return view('pages.gioithieu');
 });
-
 //BackEnd
 Route::get('admin', [Admin::class, 'index']);
 Route::get('logout', [Admin::class, 'logOut']);

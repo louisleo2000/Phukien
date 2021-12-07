@@ -20,7 +20,7 @@ class CreateSanphamsTable extends Migration
             $table->string('motasp');
             $table->string('hinhanh');
             $table->string('dvt');
-            $table->integer('New')->default(1);
+            $table->string('mausac');
             $table->float('dongia');
             $table->float('giakm');
             $table->timestamps();

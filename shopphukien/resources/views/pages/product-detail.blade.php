@@ -97,14 +97,16 @@
                             <h3 class="product-price">{{number_format($product->giakm,0, "," , ".")}}đ <del class="product-old-price">{{number_format($product->dongia,0, "," , ".")}}đ</del></h3>
                             <span class="product-available">In Stock</span>
                         </div>
-                      
+
 
                         <div class="product-options">
-                           
+
                             <label>
                                 Màu sắc
                                 <select class="input-select" style="font-size:16px;">
-                                    <option value="0">Xanh</option>
+                                    @foreach($mausac as $mau)
+                                    <option value="{{$mau}}">{{$mau}}</option>
+                                    @endforeach
                                 </select>
                             </label>
                         </div>

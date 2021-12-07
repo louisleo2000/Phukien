@@ -30,6 +30,14 @@
                             <input type="text" class="form-control" name="tenlsp" placeholder="Nhập tên loại sản phẩm">
                         </div>
                         <div class="form-group">
+                            <label for="">Danh mục sản phẩm</label>
+                            <select class="form-control" name="madm">
+                                @foreach ($listDM as $item)
+                                <option value="{{$item->madm}}">{{$item->tendm}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="motasp">Mô tả loại sản phẩm</label>
                             <textarea class="form-control" name="motalsp" rows="3"></textarea>
                         </div>

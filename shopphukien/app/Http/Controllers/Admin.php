@@ -6,6 +6,7 @@ use App\Models\Sanpham;
 use App\Models\LoaiSP;
 use Illuminate\Support\Facades\Session;
 use  App\Http\Requests;
+use App\Models\DanhMuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -56,7 +57,7 @@ class Admin extends Controller
     {
         $data = array(
             'listLSP' => LoaiSP::paginate(5),
-            'listSP' => Sanpham::paginate(5),
+            'listDM' => DanhMuc::all(),
         );
         return view('admin.add-product-type', $data);
     }
@@ -72,6 +73,7 @@ class Admin extends Controller
             'dvt' => 'required',
             'dongia' => 'required',
             'giakm' => 'required',
+            'mausac' => 'required',
         ]);
         $sp = new Sanpham();
         $data = $resquest->all();
@@ -81,6 +83,7 @@ class Admin extends Controller
         $sp->motasp = $data['motasp'];
         $sp->hinhanh = $data['hinhsp'];
         $sp->dvt = $data['dvt'];
+        $sp->mausac = $data['mausac'];
         $sp->dongia = $data['dongia'];
         $sp->giakm = $data['giakm'];
 
@@ -111,6 +114,7 @@ class Admin extends Controller
         //return $resquest->input();
         $resquest->validate([
             'malsp' => 'required',
+            'madm' => 'required',
             'tenlsp' => 'required',
             'motalsp' => 'required',
             'hinhlsp' => 'required',
@@ -121,12 +125,13 @@ class Admin extends Controller
         $data = $resquest->all();
 
         $lsp->maloaisp = $data['malsp'];
+        $lsp->madm = $data['madm'];
         $lsp->tenLsp = $data['tenlsp'];
         $lsp->motaLsp = $data['motalsp'];
         $lsp->hinhanhLSP = $data['hinhlsp'];
 
         if ($lsp->save()) {
-            return back()->with('thanhcong', 'Thêm sản phẩm thành công');
+            return back()->with('thanhcong', 'Thêm loại sản phẩm thành công');
         } else {
             return back()->with('loi', 'Lỗi khi thêm sản phẩm');
         }

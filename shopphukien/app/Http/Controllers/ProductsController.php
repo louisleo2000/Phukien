@@ -16,9 +16,15 @@ class ProductsController extends Controller
     }
     function detailsProduct($product_id)
     {
+        $prod = Sanpham::where('masp', '=', $product_id)->first();
+        if (!$prod)
+            return 'Không tìm thấy trang';
+        $mausac = explode(",", $prod->mausac);
         $products = array(
-            'product' => Sanpham::where('masp', '=', $product_id)->first()
+            'product' => $prod,
+            'mausac' => $mausac
         );
-        return view('pages.product-detail', $products);
+        if ($prod)
+            return view('pages.product-detail', $products);
     }
 }

@@ -27,19 +27,19 @@
                         </div> -->
                         <div class="form-group">
                             <label for="tensp">Tên sản phẩm</label>
-                            <input type="text" class="form-control" name="tensp" id="tensp" placeholder="Nhập tên sản phẩm" value="{{old('tensp')}}">
+                            <input type="text" class="form-control" name="tensp" placeholder="Nhập tên sản phẩm">
                         </div>
                         <div class="form-group">
                             <label for="dongia">Đơn giá</label>
-                            <input type="number" class="form-control" name="dongia" id="dongia" placeholder="Nhập đơn giá" value="{{old('dongia')}}">
+                            <input type="number" class="form-control" name="dongia" placeholder="Nhập đơn giá">
                         </div>
                         <div class="form-group">
                             <label for="giakm">Giá khuyến mãi</label>
-                            <input type="number" class="form-control" id="giakm" name="giakm" placeholder="Nhập giá khuyến mãi" value="{{old('giakm')}}">
+                            <input type="number" class="form-control" name="giakm" placeholder="Nhập giá khuyến mãi">
                         </div>
                         <div class="form-group">
                             <label for="">Loại sản phẩm</label>
-                            <select class="form-control" name="loaisp" id="loaisp">
+                            <select class="form-control" name="loaisp">
                                 @foreach ($listLSP as $item)
                                 <option value="{{$item->maloaisp}}">{{$item->tenLsp}}</option>
                                 @endforeach
@@ -47,26 +47,30 @@
                         </div>
                         <div class="form-group">
                             <label for="">Đơn vị tính</label>
-                            <select class="form-control" name="dvt" id="dvt">
+                            <select class="form-control" name="dvt">
                                 <option value="Cái">Cái</option>
                                 <option value="Hộp">Hộp</option>
                                 <option value="Bộ">Bộ</option>
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="mausac">Màu sắc</label>
+                            <input type="text" class="form-control" name="mausac" placeholder="Nhập màu cách nhau bởi dấu phẩy">
+                        </div>
+                        <div class="form-group">
                             <label for="motasp">Mô tả sản phẩm</label>
-                            <textarea class="form-control" name="motasp" id="motasp" rows="3" value="{{old('motasp')}}"></textarea>
+                            <textarea class="form-control" name="motasp" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="hinhsp">Hình ảnh sản phẩm</label>
-                            <input class="form-control" type="text" name="hinhsp" id="hinhsp" value="{{old('hinhsp')}}">
+                            <input class="form-control" type="text" name="hinhsp">
                             <!-- <p class="help-block">Example block-level help text here.</p> -->
                         </div>
-                        <div class="checkbox">
+                        <!-- <div class="checkbox">
                             <label>
                                 <input name="New" checked type="checkbox"> Sản phẩm mới?
                             </label>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-info">Thêm</button>
                     </form>
                 </div>

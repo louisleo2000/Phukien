@@ -183,11 +183,11 @@
                 <ul class="main-nav nav navbar-nav">
                     <li class="active"><a href="/">Home</a></li>
                     <li><a href="#">Hot Sales</a></li>
-                    <li><a href="products">Phụ kiện tóc</a></li>
+                    <li><a href="{{URL::to('/products')}}">Phụ kiện tóc</a></li>
                     <li><a href="#">Phụ kiện thời trang</a></li>
                     <li><a href="#">Trang sức</a></li>
                     <li><a href="/about">Giới thiệu</a></li>
-                    <li><a href="products">Tin tức</a></li>
+                    <li><a href="{{URL::to('/products')}}">Tin tức</a></li>
                 </ul>
                 <!-- /NAV -->
             </div>
