@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <div class="section-title">
                         <h3 class="title">Sản phẩm mới</h3>
-                       
+
                         <div class="section-nav">
                             <ul class="section-tab-nav tab-nav">
                                 <li class="active"><a data-toggle="tab" href="#tab1">Phụ kiện tóc</a></li>
@@ -92,7 +92,7 @@
                             <!-- tab1 -->
                             <div id="tab1" class="tab-pane active">
                                 <div class="products-slick" data-nav="#slick-nav-1">
-                                @foreach ($dm1 as $DM)
+                                    @foreach ($dm1 as $DM)
                                     @foreach ($DM->sanpham as $item)
                                     <!-- product -->
                                     <div class="product">
@@ -128,8 +128,8 @@
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
                                     <!-- /product -->
+                                    @endforeach
                                     @endforeach
                                 </div>
                                 <div id="slick-nav-1" class="products-slick-nav"></div>
@@ -137,8 +137,7 @@
                             <!-- /tab2 -->
                             <div id="tab2" class="tab-pane">
                                 <div class="products-slick" data-nav="#slick-2">
-                                
-                                @foreach ($dm2 as $DM)
+                                    @foreach ($dm2 as $DM)
                                     @foreach ($DM->sanpham as $item)
                                     <!-- product -->
                                     <div class="product">
@@ -174,14 +173,14 @@
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
                                     <!-- /product -->
+                                    @endforeach
                                     @endforeach
                                 </div>
                                 <div id="slick-2" class="products-slick-nav"></div>
                             </div>
                             <!-- /tab3 -->
-                         
+
                         </div>
                     </div>
                 </div>

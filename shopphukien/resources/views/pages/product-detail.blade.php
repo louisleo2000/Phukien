@@ -15,11 +15,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Tất cả sản phẩm</a></li>
-                        <li><a href="#">Gấu bông & gối</a></li>
-                        <li><a href="#">Gấu bông</a></li>
-                        <li class="active">Tên sản phẩm</li>
+                        <li><a href="">Home</a></li>
+                        <li><a href="#">{{$danhmuc->tendm}}</a></li>
+                        <li><a href="#">{{$loaisp->tenLsp}}</a></li>
+                        <!-- <li class="active">Tên sản phẩm</li> -->
                     </ul>
                 </div>
             </div>

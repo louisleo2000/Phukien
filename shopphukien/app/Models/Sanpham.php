@@ -13,6 +13,6 @@ class Sanpham extends Model
     protected $table = 'sanphams';
     public function loaisp()
     {
-        return $this->belongsTo(LoaiSP::class, 'maloaisp', 'masp');
+        return $this->belongsTo(LoaiSP::class, 'maloaisp', 'maloaisp');
     }
 }

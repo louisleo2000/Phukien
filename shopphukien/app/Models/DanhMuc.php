@@ -14,6 +14,6 @@ class DanhMuc extends Model
     protected $table = 'DanhMuc';
     public function loaisp()
     {
-        return $this->hasMany(LoaiSP::class,'madm');
+        return $this->hasMany(LoaiSP::class, 'madm', 'madm');
     }
 }
