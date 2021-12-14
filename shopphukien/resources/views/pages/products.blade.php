@@ -5,10 +5,6 @@
 @include('header')
 
 <body>
-
-
-
-
     <!-- BREADCRUMB -->
     <div id="breadcrumb" class="section">
         <!-- container -->
