@@ -26,15 +26,19 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="admin-product-type/add" method="post">
+                    <form action="admin-product-type/add" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="">Tên loại sản phẩm</label>
                             <input type="text" class="form-control" name="name" placeholder="Nhập tên loại sản phẩm" :value="old('name')" required autofocus>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 file-upload-wrapper">
                             <label for="">Hình ảnh</label>
-                            <input type="text" class="form-control" name="img" placeholder="Nhập đường dẫn hình ảnh" :value="old('img')" required>
+                            <div class="col-sm-4 body-img" id="bgimg">
+                                <div class="form-group inputDnD">
+                                    <input name="img" type="file" class="form-control-file text-success font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Kéo và thả ảnh ở đây" require>
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="">Danh mục sản phẩm</label>
@@ -59,7 +63,7 @@
                         </div>
 
                         <div class="col text-end">
-                            <button class="btn bg-gradient-success mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm loại sản phẩm</button>
+                            <button class="btn bg-gradient-warning mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm loại sản phẩm</button>
                         </div>
                     </form>
                 </div>
@@ -135,7 +139,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12">
+    <div class="col-12" id="table">
         <div class="card mb-4">
             <div class="card-header pb-0">
                 <h4>Loại sản phẩm</h4>
@@ -145,6 +149,7 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
+                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">ID</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Loại sản phẩm</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Danh mục sản phẩm</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
@@ -156,6 +161,10 @@
                         <tbody>
                             @foreach($listLsp as $item)
                             <tr>
+                                <td>
+                                    <p class="text-xs text-center font-weight-bold mb-0">{{$item->id}}</p>
+
+                                </td>
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <div>
@@ -180,7 +189,7 @@
 
                                 <td class="align-middle">
 
-                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-secondary" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
                                         Sửa
                                     </a>
                                     <br>
@@ -195,6 +204,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-3 ">{{$listLsp->links('layouts.paginate')}}</div>
     </div>
 </div>
 @endsection

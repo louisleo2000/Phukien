@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,13 +18,22 @@ class ProductController extends Controller
      */
     function index(Request $request)
     {
-        $listproducts =  Product::orderBy('name', 'ASC')->paginate(6);
+        $list = Product::orderBy('name', 'ASC')->paginate(6);
+        $listtype = ProductType::all();
+        $categories = Category::all();
+
+        $data = array(
+            'listproducts' => $list,
+            'listtype' => $listtype,
+            'categories' => $categories
+
+        );
         if ($request->ajax()) {
-            if ($listproducts->lastPage())
-                $view = view('pages.more-product', compact('listproducts'))->render();
+            if ($list->lastPage())
+                $view = view('pages.more-product', $data)->render();
             return response()->json(['html' => $view]);
         }
-        return view('pages.products', compact('listproducts'));
+        return view('pages.products', $data);
     }
 
     function details($product_id)

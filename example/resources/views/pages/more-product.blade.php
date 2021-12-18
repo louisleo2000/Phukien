@@ -1,3 +1,4 @@
+@if(isset($listproducts))
 @foreach ($listproducts as $item)
 <!-- product -->
 <a href="{{URL::to('/product-details/'.$item->id)}}">
@@ -32,3 +33,4 @@
 </a>
 <!-- /product -->
 @endforeach
+@endif

@@ -9,17 +9,17 @@ use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class AdminCategoryController extends Controller
 {
-    function viewAddCategory()
+    function view()
     {
         $data = array(
             'active' => 4,
             'title' => 'Danh mục sản Phẩm',
-            'list' => Category::all()
+            'list' => Category::paginate(5)
         );
         return view('admin.adminpages.admin-categories', $data);
     }
 
-    function addCategory(Request $resquest)
+    function add(Request $resquest)
     {
         $resquest->validate([
             'name' => 'required',

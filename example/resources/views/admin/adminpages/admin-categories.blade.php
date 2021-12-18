@@ -121,6 +121,7 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
+                                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Danh mụcsản phẩm</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày cập nhật</th>
@@ -131,6 +132,9 @@
                         <tbody>
                             @foreach($list as $item)
                             <tr>
+                                <td class="align-middle text-center">
+                                    <span class=" text-xs font-weight-bold">{{$item->id}}</span>
+                                </td>
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <!-- <div>
@@ -152,7 +156,7 @@
 
                                 <td class="align-middle">
 
-                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-secondary" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
                                         Sửa
                                     </a>
                                     <br>
@@ -167,6 +171,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-3 ">{{$list->links('layouts.paginate')}}</div>
     </div>
 </div>
 @endsection

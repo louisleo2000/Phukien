@@ -12,7 +12,9 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb-tree">
                         <li><a href="#">Home</a></li>
+                        @if(isset($listproducts))
                         <li class="active">Tất cả sản phẩm ({{$listproducts->total()}} sản phẩm)</li>
+                        @endif
                         <!-- <li><a href="#">Phụ kiện</a></li>
                         <li class="active">Phụ kiện thời trang </li> -->
                     </ul>
@@ -34,45 +36,61 @@
                 <div id="aside" class="col-md-3">
                     <!-- aside Widget -->
                     <div class="aside">
-                        <h3 class="aside-title">Thể loại</h3>
+                        <h3 class="aside-title">Danh mục</h3>
                         <div class="checkbox-filter">
-
+                            @if(isset($categories))
+                            @foreach($categories as $cate)
                             <div class="input-checkbox">
-                                <input type="checkbox" id="category-1">
-                                <label for="category-1">
+                                <input type="checkbox" id="{{$cate->id}}">
+                                <label for="{{$cate->id}}">
                                     <span></span>
-                                    Phụ kiện tóc
+                                    {{$cate->name}}
+                                    <small>
+                                        <?php $sum = 0;
+                                        foreach ($cate->productTypes as $type) {
+                                            $sum += $type->products->count();
+                                        }
+                                        ?>
+                                        ({{$sum}})
+                                    </small>
+                                </label>
+                            </div>
+                            @endforeach
+                            @endif
+                            <!-- <div class="input-checkbox">
+                                <input type="checkbox" id="category-5">
+                                <label for="category-5">
+                                    <span></span>
+                                    Laptops
                                     <small>(120)</small>
                                 </label>
-                            </div>
+                            </div> -->
 
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-2">
-                                <label for="category-2">
+                            <!-- <div class="input-checkbox">
+                                <input type="checkbox" id="category-6">
+                                <label for="category-6">
                                     <span></span>
-                                    Phụ kiện thời trang
-                                    <small>({{$listproducts->total()}})</small>
+                                    Smartphones
+                                    <small>(740)</small>
+                                </label>
+                            </div> -->
+                        </div>
+                        <h3 class="aside-title">Thể loại</h3>
+                        <div class="checkbox-filter">
+                            @if(isset($listtype))
+                            @foreach($listtype as $type)
+                            <div class="input-checkbox">
+                                <input type="checkbox" id="lsp{{$type->id}}">
+                                <label for="lsp{{$type->id}}">
+                                    <span></span>
+                                    {{$type->name}}
+                                    <small>
+                                        ({{$type->products->count()}})
+                                    </small>
                                 </label>
                             </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-3">
-                                <label for="category-3">
-                                    <span></span>
-                                    Gấu bông & gối
-                                    <small>(1450)</small>
-                                </label>
-                            </div>
-
-                            <div class="input-checkbox">
-                                <input type="checkbox" id="category-4">
-                                <label for="category-4">
-                                    <span></span>
-                                    Túi xách
-                                    <small>(578)</small>
-                                </label>
-                            </div>
-
+                            @endforeach
+                            @endif
                             <!-- <div class="input-checkbox">
                                 <input type="checkbox" id="category-5">
                                 <label for="category-5">
@@ -181,7 +199,10 @@
                         @include('pages.more-product')
                     </div>
                     <div id="lastpage">
+                        @if(isset($listproducts))
                         <p style="font-size: 0;"> {{$listproducts->lastPage()}}</p>
+                        @else {{0}}
+                        @endif
                     </div>
                     <div class="ajax-load text-center" style="display: none;">
                         <img src="img/loading.gif" style="width: 50px;" />
