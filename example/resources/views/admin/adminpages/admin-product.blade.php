@@ -37,11 +37,22 @@
 
                         <div class="mb-3 file-upload-wrapper">
                             <label for="">Hình ảnh</label>
-                            <div class="col-sm-4 body-img" id="bgimg">
+
+                            <div class="row">
+                                <a id="lfm" data-input="thumbnail" data-preview="holder" class=" btn-info btn-img col-2">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Chọn ảnh
+                                </a>
+                                <div class="col">
+                                    <input id="thumbnail" class="form-control" type="text" name="img" style=" border-top-left-radius: 0px ; border-bottom-left-radius:0px ;">
+                                </div>
+                            </div>
+
+                            <img id="imgpreview" style="margin-top:15px;max-height:200px;" alt="">
+                            <!-- <div class="col-sm-4 body-img" id="bgimg">
                                 <div class="form-group inputDnD">
                                     <input name="img" type="file" class="form-control-file text-success font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Kéo và thả ảnh ở đây" require>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="mb-3">
                             <label for="">Loại sản phẩm</label>
@@ -73,8 +84,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Mô tả</label>
-                            <textarea class="form-control" name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" :value="old('descrip')" required></textarea>
+                            <textarea id="my-editor" class="form-control" name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" :value="old('descrip')" required></textarea>
                         </div>
+
                         <div class="mb-3">
                             <label for="">Đơn giá</label>
                             <input type="number" class="form-control" name="unit_price" placeholder="Đơn giá" min="1" :value="old('unit_price')" required>
@@ -193,13 +205,13 @@
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="mb-0 text-sm">{{$item->name}}</h6>
-                                            <p class="text-xs text-secondary mb-0">{{$item->descrip}}</p>
+
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <p class="text-xs font-weight-bold mb-0">{{$item->productTypes->name}}</p>
-                                    <p class="text-xs text-secondary mb-0">{{$item->descrip}}</p>
+
                                 </td>
                                 <td class="align-middle text-center">
                                     <span class="text-secondary text-xs font-weight-bold">{{$item->created_at}}</span>
@@ -236,6 +248,5 @@
     </div>
 
 </div>
-
 
 @endsection

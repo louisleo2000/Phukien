@@ -32,18 +32,18 @@ class AdminProductTypeController extends Controller
 
         ]);
 
-        $file = $resquest->img;
-        $img = "img-" . time() . "." . $file->extension();
-        $img_name = "uploads/" . $img;
+        // $file = $resquest->img;
+        // $img = "img-" . time() . "." . $file->extension();
+        // $img_name = "uploads/" . $img;
         $sp = new ProductType();
         $data = $resquest->all();
         $sp->name = $data['name'];
         $sp->category_id = $data['category_id'];
-        $sp->img = $img_name;
+        $sp->img =  $data['img'];
         $sp->descrip = $data['descrip'];
 
         if ($sp->save()) {
-            $file->move(public_path('uploads'), $img);
+            // $file->move(public_path('uploads'), $img);
             return back()->with('success', 'Thêm loại sản phẩm thành công');
         } else {
             return back()->with('fail', 'Lỗi khi thêm loại sản phẩm');

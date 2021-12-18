@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -33,5 +34,8 @@ Route::get('/product-details/{product_id}', [ProductController::class, 'details'
 
 Route::get('/products', [ProductController::class, 'index'])->name('product-details');
 
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth', 'admin']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
 require __DIR__ . '/auth.php';
 require __DIR__ . '/admin.php';

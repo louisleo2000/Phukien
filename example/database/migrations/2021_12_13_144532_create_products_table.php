@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_type_id');
             $table->string('name');
-            $table->string('descrip');
+            $table->text('descrip');
             $table->string('img');
             $table->string('unit');
             $table->string('color');

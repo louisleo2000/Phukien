@@ -34,14 +34,14 @@ class AdminProductController extends Controller
             'color' => 'required',
         ]);
 
-        $file = $resquest->img;
-        $img = "img-" . time() . "." . $file->extension();
-        $img_name = "uploads/" . $img;
+        // $file = $resquest->img;
+        // $img = "img-" . time() . "." . $file->extension();
+        // $img_name = "uploads/" . $img;
         $sp = new Product();
         $data = $resquest->all();
         $sp->name = $data['name'];
         $sp->product_type_id = $data['product_type_id'];
-        $sp->img = $img_name;
+        $sp->img =  $data['img'];
         $sp->descrip = $data['descrip'];
         $sp->rating = 0;
         $sp->unit = $data['unit'];
@@ -50,7 +50,7 @@ class AdminProductController extends Controller
         $sp->promo_price = $data['promo_price'];
 
         if ($sp->save()) {
-            $file->move(public_path('uploads'), $img);
+            // $file->move(public_path('uploads'), $img);
             return back()->with('success', 'Thêm sản phẩm thành công');
         } else {
             return back()->with('fail', 'Lỗi khi thêm sản phẩm');

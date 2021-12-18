@@ -20,6 +20,11 @@
     <!-- CSS Files -->
     <link href="admin/css/style.css" rel="stylesheet" />
     <link id="pagestyle" href="admin/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+    <!-- CKEDITOR -->
+    <script src="//cdn.ckeditor.com/4.17.1/full/ckeditor.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="{{ URL::asset('js/stand-alone-button.js')}}"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100" style="overflow:hidden;">
@@ -314,7 +319,27 @@
             }
         }
     </script>
-
+    <script>
+        var options = {
+            filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+            filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+            filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+            filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+        };
+    </script>
+    <script>
+        CKEDITOR.replace('my-editor', options);
+    </script>
+    <script>
+        $('#lfm').filemanager('image');
+        if (typeof thumbnail != 'undefined') {
+            thumbnail.onchange = evt => {
+                var img = document.getElementById("imgpreview");
+                if (img != null)
+                    img.src = thumbnail.value;
+            }
+        }
+    </script>
 </body>
 
 

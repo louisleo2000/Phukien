@@ -18,7 +18,7 @@ class CreateProductTypesTable extends Migration
             $table->id();
             $table->string('category_id');
             $table->string('name');
-            $table->string('descrip');
+            $table->text('descrip');
             $table->string('img');
             $table->timestamps();
         });

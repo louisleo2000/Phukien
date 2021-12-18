@@ -34,11 +34,21 @@
                         </div>
                         <div class="mb-3 file-upload-wrapper">
                             <label for="">Hình ảnh</label>
-                            <div class="col-sm-4 body-img" id="bgimg">
+                            <div class="row">
+                                <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn-info col-2 btn-img">
+                                    <i class="fa fa-picture-o" aria-hidden="true"></i> Chọn ảnh
+                                </a>
+                                <div class="col">
+                                    <input id="thumbnail" class="form-control" type="text" name="img" style=" border-top-left-radius: 0px ; border-bottom-left-radius:0px ;">
+                                </div>
+
+                            </div>
+                            <img id="imgpreview" style="margin-top:15px;max-height:200px;" alt="">
+                            <!-- <div class="col-sm-4 body-img" id="bgimg">
                                 <div class="form-group inputDnD">
                                     <input name="img" type="file" class="form-control-file text-success font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Kéo và thả ảnh ở đây" require>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="mb-3">
                             <label for="">Danh mục sản phẩm</label>
@@ -59,7 +69,7 @@
 
                         <div class="mb-3">
                             <label for="">Mô tả</label>
-                            <textarea class="form-control" name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" :value="old('descrip')" required></textarea>
+                            <textarea class="form-control" id='my-editor' name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" :value="old('descrip')" required></textarea>
                         </div>
 
                         <div class="col text-end">
