@@ -132,7 +132,7 @@
                         <!-- product tab nav -->
                         <ul class="tab-nav">
                             <li class="active"><a data-toggle="tab" href="#tab1">Mô tả</a></li>
-                            <li><a data-toggle="tab" href="#tab2">Chi tiết</a></li>
+                            <!-- <li><a data-toggle="tab" href="#tab2">Chi tiết</a></li> -->
                             <li><a data-toggle="tab" href="#tab3">Đánh giá (3)</a></li>
                         </ul>
                         <!-- /product tab nav -->
@@ -150,13 +150,13 @@
                             <!-- /tab1  -->
 
                             <!-- tab2  -->
-                            <div id="tab2" class="tab-pane fade in">
+                            <!-- <div id="tab2" class="tab-pane fade in">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <p>Trần đời này có bao nhiêu sự cute hình như đều được đặt hết vào team quả bơ này rùi í các cậu ạ, tất thảy mọi đồ dùng mà có thêm hình những em bơ chinh chinh nhỏ nhắn này là muốn ôm hết về nhà lun. Cùng đắm chìm trong màu xanh xanh cute thích mê này nào các cậu </p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- /tab2  -->
 
                             <!-- tab3  -->

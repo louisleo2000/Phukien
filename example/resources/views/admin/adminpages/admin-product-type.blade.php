@@ -26,11 +26,11 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="admin-product-type/add" method="post" enctype="multipart/form-data">
+                    <form action="admin-product-type/add" method="post" id="myform">
                         @csrf
                         <div class="mb-3">
                             <label for="">Tên loại sản phẩm</label>
-                            <input type="text" class="form-control" name="name" placeholder="Nhập tên loại sản phẩm" :value="old('name')" required autofocus>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Nhập tên loại sản phẩm" :value="old('name')" required autofocus>
                         </div>
                         <div class="mb-3 file-upload-wrapper">
                             <label for="">Hình ảnh</label>
@@ -54,7 +54,7 @@
                             <label for="">Danh mục sản phẩm</label>
                             @if(isset($listCategories))
                             @if($listCategories->count() !=0)
-                            <select class="form-control" name="category_id" :value="old('category_id')" required>
+                            <select class="form-control" name="category_id" id="type_id" :value="old('category_id')" required>
                                 @foreach ($listCategories as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
@@ -69,13 +69,17 @@
 
                         <div class="mb-3">
                             <label for="">Mô tả</label>
-                            <textarea class="form-control" id='my-editor' name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" :value="old('descrip')" required></textarea>
+                            <textarea class="form-control" id='my-editor' name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" required></textarea>
                         </div>
 
-                        <div class="col text-end">
+                        <div class="col text-end" id="btnAdd">
                             <button class="btn bg-gradient-warning mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm loại sản phẩm</button>
                         </div>
                     </form>
+                    <div class="col text-end" id="btnEdit" style="display: none; ">
+                        <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
+                        <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-product-type/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,14 +153,19 @@
             </div>
         </div>
     </div>
-    <div class="col-12" id="table">
+    @if(Session::get('del-success'))
+    <div class="alert alert-success">
+        <strong>{{Session::get('del-success')}}</strong>
+    </div>
+    @endif
+    <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
                 <h4>Loại sản phẩm</h4>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0">
+                    <table class="table align-items-center mb-0" id="table1">
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">ID</th>
@@ -199,11 +208,11 @@
 
                                 <td class="align-middle">
 
-                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a data-url="{{route('admin-product-type.show',$item->id)}}" data-preview="{{$item->id}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
                                         Sửa
                                     </a>
                                     <br>
-                                    <a href="javascript:;" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a onclick="return confirm('Bạn có chắc muốn xóa loại sản phẩm này?')" href="{{URL::to('/del-product-type/'.$item->id)}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
                                         Xóa
                                     </a>
                                 </td>

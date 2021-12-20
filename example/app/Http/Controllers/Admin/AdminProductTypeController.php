@@ -49,4 +49,43 @@ class AdminProductTypeController extends Controller
             return back()->with('fail', 'Lỗi khi thêm loại sản phẩm');
         }
     }
+
+    function edit(Request $resquest, $id)
+    {
+        $resquest->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'descrip' => 'required',
+            'img' => 'required',
+
+        ]);
+
+        // $file = $resquest->img;
+        // $img = "img-" . time() . "." . $file->extension();
+        // $img_name = "uploads/" . $img;
+        $sp = ProductType::find($id);
+        $data = $resquest->all();
+        $sp->name = $data['name'];
+        $sp->category_id = $data['category_id'];
+        $sp->img =  $data['img'];
+        $sp->descrip = $data['descrip'];
+
+        if ($sp->save()) {
+            // $file->move(public_path('uploads'), $img);
+            return back()->with('success', 'Sửa loại sản phẩm thành công');
+        } else {
+            return back()->with('fail', 'Lỗi khi sửa loại sản phẩm');
+        }
+    }
+    function del($id)
+    {
+        $sp = ProductType::find($id);
+        $sp->delete();
+        return back()->with('del-success', 'Xóa thành công!');
+    }
+    function showData($id)
+    {
+        $sp = ProductType::find($id);
+        return response()->json(['data' => $sp], 200);
+    }
 }

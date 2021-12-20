@@ -28,11 +28,11 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="admin-product/add" method="post" enctype="multipart/form-data">
+                    <form action="admin-product/add" method="post" id="myform">
                         @csrf
                         <div class="mb-3">
                             <label for="">Tên sản phẩm</label>
-                            <input type="text" class="form-control " name="name" placeholder="Tên sản phẩm" :value="old('name')" required autofocus>
+                            <input type="text" class="form-control " name="name" id="name" placeholder="Tên sản phẩm" :value="old('name')" required autofocus>
                         </div>
 
                         <div class="mb-3 file-upload-wrapper">
@@ -58,7 +58,7 @@
                             <label for="">Loại sản phẩm</label>
                             @if(isset($listLsp))
                             @if($listLsp->count() !=0)
-                            <select class="form-control" name="product_type_id" :value="old('product_type_id')" required>
+                            <select class="form-control" name="product_type_id" id="product_type_id" :value="old('product_type_id')" required>
                                 @foreach ($listLsp as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
@@ -72,15 +72,15 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Đơn vị tính</label>
-                            <select class="form-control" name="unit" :value="old('unit')" required>
-                                <option value="Cái">Cái</option>
-                                <option value="Hộp">Hộp</option>
-                                <option value="Bộ">Bộ</option>
+                            <select class="form-control" name="unit" id="unit" :value="old('unit')" required>
+                                <option value="cái">Cái</option>
+                                <option value="hộp">Hộp</option>
+                                <option value="bộ">Bộ</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="">Màu sắc</label>
-                            <input type="text" class="form-control" name="color" placeholder="Nhập nhiều màu cách nhau bởi dấu phẩy" :value="old('color')" required>
+                            <input type="text" class="form-control" name="color" id="color" placeholder="Nhập nhiều màu cách nhau bởi dấu phẩy" :value="old('color')" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Mô tả</label>
@@ -89,16 +89,23 @@
 
                         <div class="mb-3">
                             <label for="">Đơn giá</label>
-                            <input type="number" class="form-control" name="unit_price" placeholder="Đơn giá" min="1" :value="old('unit_price')" required>
+                            <input type="number" class="form-control" name="unit_price" id="unit_price" placeholder="Đơn giá" min="1" :value="old('unit_price')" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Giá khuyển mãi</label>
-                            <input type="number" class="form-control" name="promo_price" placeholder="Giá khuyến mãi" min="1" :value="old('promo_price')" required>
+                            <input type="number" class="form-control" name="promo_price" id="promo_price" placeholder="Giá khuyến mãi" min="1" :value="old('promo_price')" required>
                         </div>
-                        <div class="col text-end">
+                        <div class="col text-end" id="btnAdd">
                             <button class="btn bg-gradient-info mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm sản phẩm</button>
                         </div>
                     </form>
+
+                    <div class="col text-end" id="btnEdit" style="display: none; ">
+                        <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
+                        <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-product/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -172,22 +179,30 @@
             </div>
         </div>
     </div>
-    <div class="col-12" id="table">
+    @if(Session::get('del-success'))
+    <div class="alert alert-success">
+        <strong>{{Session::get('del-success')}}</strong>
+    </div>
+    @endif
+    <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
                 <h4>Sản phẩm</h4>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0">
+                    <table class="table align-items-center mb-0" id="table">
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Sản phẩm</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Loại sản phẩm</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Màu sắc</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Đơn giá</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá KM</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày cập nhật</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Màu sắc</th>
+
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
@@ -214,21 +229,28 @@
 
                                 </td>
                                 <td class="align-middle text-center">
+                                    <span class=" text-xs font-weight-bold">{{$item->color}}</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class=" text-xs font-weight-bold">{{number_format($item->unit_price,0, "," , ".")}}</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class=" text-xs font-weight-bold">{{number_format($item->promo_price,0, "," , ".")}}</span>
+                                </td>
+                                <td class="align-middle text-center">
                                     <span class="text-secondary text-xs font-weight-bold">{{$item->created_at}}</span>
                                 </td>
                                 <td class="align-middle text-center">
                                     <span class="text-secondary text-xs font-weight-bold">{{$item->updated_at}}</span>
                                 </td>
-                                <td class="align-middle text-center">
-                                    <span class=" text-xs font-weight-bold">{{$item->color}}</span>
-                                </td>
+
                                 <td class="align-middle">
 
-                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a data-url="{{route('admin-product.show',$item->id)}}" data-preview="{{$item->id}}" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
                                         Sửa
                                     </a>
                                     <br>
-                                    <a href="javascript:;" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a type="button" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?'); " href="{{URL::to('/del-product/'.$item->id)}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
                                         Xóa
                                     </a>
                                 </td>

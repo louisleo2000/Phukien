@@ -14,7 +14,7 @@
             </div>
             <div class="product-body">
 
-                <h3 class="product-name"><a href="{{URL::to('/product-details/'.$item->id)}}">{{$item->name}}</a></h3>
+                <h3 class="product-name"><a href="{{URL::to('/product-details/'.$item->id)}}">{{mb_strimwidth($item->name, 0, 30, "...");}}</a></h3>
                 <h4 class="product-price">{{number_format($item->promo_price,0, "," , ".")}}đ <del class="product-old-price">{{number_format($item->unit_price,0, "," ,  ".")}}đ</del></h4>
                 <div class="product-rating">
                     {{ratingStar($item->rating)}}

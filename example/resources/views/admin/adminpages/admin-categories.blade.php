@@ -27,17 +27,21 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="admin-categories/add" method="post">
+                    <form action="admin-categories/add" method="post" id="myform">
                         @csrf
                         <div class="mb-3">
                             <label for="">Tên danh mục sản phẩm</label>
-                            <input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục sản phẩm" :value="old('name')" required autofocus>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Nhập tên danh mục sản phẩm" :value="old('name')" required autofocus>
                         </div>
 
-                        <div class="col text-end">
+                        <div class="col text-end" id="btnAdd">
                             <button class="btn bg-gradient-dark mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm danh mục</button>
                         </div>
                     </form>
+                    <div class="col text-end" id="btnEdit" style="display: none; ">
+                        <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
+                        <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-categories/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,7 +115,12 @@
             </div>
         </div>
     </div>
-    <div class="col-12">
+    @if(Session::get('del-success'))
+    <div class="alert alert-success">
+        <strong>{{Session::get('del-success')}}</strong>
+    </div>
+    @endif
+    <div class="col-12" id='table'>
         <div class="card mb-4">
             <div class="card-header pb-0">
                 <h4>Danh mục sản phẩm</h4>
@@ -156,11 +165,11 @@
 
                                 <td class="align-middle">
 
-                                    <a href="javascript:;" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a data-url="{{route('admin-categories.show',$item->id)}}" data-preview="{{$item->id}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
                                         Sửa
                                     </a>
                                     <br>
-                                    <a href="javascript:;" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
+                                    <a onclick="return confirm('Bạn có chắc muốn xóa danh mục sản phẩm này?')" href="{{route('admin-categories.del',$item->id)}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
                                         Xóa
                                     </a>
                                 </td>
@@ -177,4 +186,5 @@
         <div class="col-3 ">{{$list->links('layouts.paginate')}}</div>
     </div>
 </div>
+
 @endsection
