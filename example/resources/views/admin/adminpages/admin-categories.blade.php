@@ -33,11 +33,10 @@
                             <label for="">Tên danh mục sản phẩm</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Nhập tên danh mục sản phẩm" :value="old('name')" required autofocus>
                         </div>
-
-                        <div class="col text-end" id="btnAdd">
-                            <button class="btn bg-gradient-dark mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm danh mục</button>
-                        </div>
                     </form>
+                    <div class="col text-end" id="btnAdd">
+                        <button class="btn bg-gradient-dark mb-0" onclick="save('/admin-categories/add',1)"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm danh mục</button>
+                    </div>
                     <div class="col text-end" id="btnEdit" style="display: none; ">
                         <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
                         <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-categories/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
@@ -126,65 +125,55 @@
                 <h4>Danh mục sản phẩm</h4>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0">
-                        <thead>
-                            <tr>
-                                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Danh mụcsản phẩm</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày cập nhật</th>
-
-                                <th class="text-secondary opacity-7"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($list as $item)
-                            <tr>
-                                <td class="align-middle text-center">
-                                    <span class=" text-xs font-weight-bold">{{$item->id}}</span>
-                                </td>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <!-- <div>
-                                            <img src="{{$item->img}}" class="avatar avatar-sm me-3" alt="user1">
-                                        </div> -->
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{$item->name}}</h6>
-                                            <!-- <p class="text-xs text-secondary  mb-0">{{$item->descrip}}</p> -->
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{$item->created_at}}</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{$item->updated_at}}</span>
-                                </td>
-
-                                <td class="align-middle">
-
-                                    <a data-url="{{route('admin-categories.show',$item->id)}}" data-preview="{{$item->id}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
-                                        Sửa
-                                    </a>
-                                    <br>
-                                    <a onclick="return confirm('Bạn có chắc muốn xóa danh mục sản phẩm này?')" href="{{route('admin-categories.del',$item->id)}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
-                                        Xóa
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table  table-striped table-bordered yajra-datatable" data-url="/show-product-type/">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên danh mục</th>
+                            <th>Ngày tạo</th>
+                            <th>Ngày cập nhật</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-8"></div>
         <div class="col-3 ">{{$list->links('layouts.paginate')}}</div>
-    </div>
+    </div> -->
 </div>
-
+<script type="text/javascript">
+    var table = $('.yajra-datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin-categories.list') }}",
+        columns: [{
+                data: 'id',
+                name: 'id'
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'created_at',
+                name: 'created_at'
+            },
+            {
+                data: 'updated_at',
+                name: 'updated_at'
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: true,
+                searchable: true
+            },
+        ]
+    });
+</script>
 @endsection

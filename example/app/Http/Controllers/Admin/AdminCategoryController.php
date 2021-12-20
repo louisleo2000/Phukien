@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use DataTables;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class AdminCategoryController extends Controller
@@ -19,6 +20,39 @@ class AdminCategoryController extends Controller
         return view('admin.adminpages.admin-categories', $data);
     }
 
+    public function get(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Category::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+
+                ->editColumn('created_at', function ($sp) {
+
+                    return $sp->created_at->diffForHumans();
+                })
+                ->editColumn('updated_at', function ($sp) {
+
+                    return $sp->updated_at->diffForHumans();
+                })
+
+                ->addColumn('action', function ($sp) {
+                    $url = route('admin-categories.show', $sp->id);
+                    $delurl = route('admin-categories.del', $sp->id);
+                    $action =
+                        '<a id="edit' . $sp->id . '" onclick="edit(' . $sp->id . ')" data-url="' . $url . '" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
+                        Sửa
+                        </a>
+                        <br>
+                        <a  id="del' . $sp->id . '" onclick="del(' . $sp->id . ')" data-url="' . $delurl . '" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
+                        Xóa
+                    </a>';
+                    return $action;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+    }
     function add(Request $resquest)
     {
         $resquest->validate([

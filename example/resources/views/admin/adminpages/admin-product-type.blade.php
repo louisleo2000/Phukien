@@ -72,10 +72,11 @@
                             <textarea class="form-control" id='my-editor' name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" required></textarea>
                         </div>
 
-                        <div class="col text-end" id="btnAdd">
-                            <button class="btn bg-gradient-warning mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm loại sản phẩm</button>
-                        </div>
+
                     </form>
+                    <div class="col text-end" id="btnAdd">
+                        <button class="btn bg-gradient-warning mb-0" onclick="save('/admin-product-type/add',1)"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm loại sản phẩm</button>
+                    </div>
                     <div class="col text-end" id="btnEdit" style="display: none; ">
                         <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
                         <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-product-type/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
@@ -165,68 +166,69 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0" id="table1">
+
+                    <table class="align-items-center mb-0 table-border yajra-datatable">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs text-center font-weight-bolder opacity-7">ID</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Loại sản phẩm</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Danh mục sản phẩm</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày cập nhật</th>
-
-                                <th class="text-secondary opacity-7"></th>
+                                <th>ID</th>
+                                <th></th>
+                                <th>Tên loại sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày cập nhật</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($listLsp as $item)
-                            <tr>
-                                <td>
-                                    <p class="text-xs text-center font-weight-bold mb-0">{{$item->id}}</p>
-
-                                </td>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img src="{{$item->img}}" class="avatar avatar-sm me-3" alt="user1">
-                                        </div>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{$item->name}}</h6>
-                                            <!-- <p class="text-xs text-secondary  mb-0">{{$item->descrip}}</p> -->
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-xs font-weight-bold mb-0">{{$item->category->name}}</p>
-                                    <!-- <p class="text-xs text-secondary mb-0">{{$item->descrip}}</p> -->
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{$item->created_at}}</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{$item->updated_at}}</span>
-                                </td>
-
-                                <td class="align-middle">
-
-                                    <a data-url="{{route('admin-product-type.show',$item->id)}}" data-preview="{{$item->id}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
-                                        Sửa
-                                    </a>
-                                    <br>
-                                    <a onclick="return confirm('Bạn có chắc muốn xóa loại sản phẩm này?')" href="{{URL::to('/del-product-type/'.$item->id)}}" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
-                                        Xóa
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-8"></div>
         <div class="col-3 ">{{$listLsp->links('layouts.paginate')}}</div>
-    </div>
+    </div> -->
 </div>
+<script type="text/javascript">
+    var table = $('.yajra-datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin-product-type.list') }}",
+        columns: [{
+                data: 'id',
+                name: 'id'
+            },
+
+            {
+                data: 'img',
+                name: 'img'
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'categories',
+                name: 'categories'
+            },
+
+            {
+                data: 'created_at',
+                name: 'created_at'
+            },
+            {
+                data: 'updated_at',
+                name: 'updated_at'
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: true,
+                searchable: true
+            },
+        ]
+    });
+</script>
 @endsection

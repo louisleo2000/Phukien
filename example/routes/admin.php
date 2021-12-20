@@ -30,3 +30,8 @@ Route::post('/edit-product-type/{id}', [AdminProductTypeController::class, 'edit
 
 Route::post('admin-categories/add', [AdminCategoryController::class, 'add'])->middleware(['auth', 'admin']);
 Route::post('/edit-categories/{id}', [AdminCategoryController::class, 'edit'])->middleware(['auth', 'admin']);
+
+
+Route::get('admin-product/list', [AdminProductController::class, 'get'])->name('admin-product.list');
+Route::get('admin-product-type/list', [AdminProductTypeController::class, 'get'])->name('admin-product-type.list');
+Route::get('admin-categories/list', [AdminCategoryController::class, 'get'])->name('admin-categories.list');

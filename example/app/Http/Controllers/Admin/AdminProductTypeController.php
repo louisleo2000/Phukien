@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
+use DataTables;
 use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class AdminProductTypeController extends Controller
@@ -20,6 +21,43 @@ class AdminProductTypeController extends Controller
 
         );
         return view('admin.adminpages.admin-product-type', $data);
+    }
+
+    public function get(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = ProductType::latest()->get();
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->editColumn('img', '<img src="{{$img}}" class="avatar avatar-sm me-3" alt="user1">')
+                ->editColumn('created_at', function ($sp) {
+
+                    return $sp->created_at->diffForHumans();
+                })
+                ->editColumn('updated_at', function ($sp) {
+
+                    return $sp->updated_at->diffForHumans();
+                })
+                ->addColumn('categories', function ($sp) {
+
+                    return $sp->category->name;
+                })
+                ->addColumn('action', function ($sp) {
+                    $url = route('admin-product-type.show', $sp->id);
+                    $delurl = route('admin-product-type.del', $sp->id);
+                    $action =
+                        '<a id="edit' . $sp->id . '" onclick="edit(' . $sp->id . ')" data-url="' . $url . '" class="font-weight-bold text-xs badge badge-sm bg-gradient-success" data-toggle="tooltip" data-original-title="Edit user">
+                        Sửa
+                        </a>
+                        <br>
+                        <a  id="del' . $sp->id . '" onclick="del(' . $sp->id . ')" data-url="' . $delurl . '" class=" font-weight-bold text-xs badge badge-sm bg-gradient-danger" style="margin-top: 2px;" data-toggle="tooltip" data-original-title="Edit user">
+                        Xóa
+                        </a>';
+                    return $action;
+                })
+                ->rawColumns(['action', 'img'])
+                ->make(true);
+        }
     }
 
     function add(Request $resquest)

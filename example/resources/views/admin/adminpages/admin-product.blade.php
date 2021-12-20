@@ -95,11 +95,10 @@
                             <label for="">Giá khuyển mãi</label>
                             <input type="number" class="form-control" name="promo_price" id="promo_price" placeholder="Giá khuyến mãi" min="1" :value="old('promo_price')" required>
                         </div>
-                        <div class="col text-end" id="btnAdd">
-                            <button class="btn bg-gradient-info mb-0" type="submit"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm sản phẩm</button>
-                        </div>
                     </form>
-
+                    <div class="col text-end" id="btnAdd">
+                        <button class="btn bg-gradient-info mb-0" onclick="save('/admin-product/add',1)"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm sản phẩm</button>
+                    </div>
                     <div class="col text-end" id="btnEdit" style="display: none; ">
                         <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
                         <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-product/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
@@ -191,7 +190,7 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                    <table class="table align-items-center mb-0" id="table">
+                    <!-- <table class="table align-items-center mb-0" id="table">
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
@@ -202,7 +201,6 @@
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá KM</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ngày cập nhật</th>
-
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
                         </thead>
@@ -257,18 +255,91 @@
                             </tr>
                             @endforeach
                         </tbody>
+                    </table> -->
+                    <table class=" table table-striped  table-bordered yajra-datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th></th>
+                                <th>Tên sản phẩm</th>
+                                <th>Loại</th>
+                                <th>ĐVT</th>
+                                <th>Màu sắc</th>
+                                <th>Đơn giá</th>
+                                <th>Giá KM</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày cập nhật</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-8"></div>
             <div class="col-3 ">{{$listProducts->links('layouts.paginate')}}</div>
-        </div>
+        </div> -->
 
     </div>
 
 </div>
+<script type="text/javascript">
+    var table = $('.yajra-datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin-product.list') }}",
+        columns: [{
+                data: 'id',
+                name: 'id'
+            },
 
+            {
+                data: 'img',
+                name: 'img'
+            },
+            {
+                data: 'name',
+                name: 'name'
+            },
+            {
+                data: 'type',
+                name: 'type'
+            },
+            {
+                data: 'unit',
+                name: 'unit'
+            },
+            {
+                data: 'color',
+                name: 'color'
+            },
+
+            {
+                data: 'unit_price',
+                name: 'unit_price'
+            },
+            {
+                data: 'promo_price',
+                name: 'promo_price'
+            },
+            {
+                data: 'created_at',
+                name: 'created_at'
+            },
+            {
+                data: 'updated_at',
+                name: 'updated_at'
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: true,
+                searchable: true
+            },
+        ]
+    });
+</script>
 @endsection

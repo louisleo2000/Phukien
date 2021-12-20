@@ -14,8 +14,9 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
+
             $table->id();
-            $table->string('product_type_id');
+            $table->integer('product_type_id');
             $table->string('name');
             $table->text('descrip');
             $table->string('img');
@@ -25,6 +26,9 @@ class CreateProductsTable extends Migration
             $table->float('unit_price');
             $table->float('promo_price');
             $table->timestamps();
+            // $table->foreign('product_type_id')
+            //     ->references('id')->on('product_types')
+            //     ->onDelete('cascade');
         });
     }
 
