@@ -143,7 +143,7 @@
         console.log(url);
         // console.log(idp);
         // console.log("id:", id);
-        if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
+        if (confirm('Bạn có chắc muốn xóa? Hành động này sẽ xóa các dữ liệu liên quan vĩnh viễn')) {
             $.ajax({
                     url: url,
                     type: "get",

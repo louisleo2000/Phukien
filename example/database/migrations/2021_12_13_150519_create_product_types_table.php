@@ -15,15 +15,15 @@ class CreateProductTypesTable extends Migration
     {
 
         Schema::create('product_types', function (Blueprint $table) {
-            $table->id();
-            $table->integer('category_id');
+            $table->increments('id');
+            $table->integer('category_id')->unsigned();
             $table->string('name');
             $table->text('descrip');
             $table->string('img');
             $table->timestamps();
-            // $table->foreign('category_id')
-            //     ->references('id')->on('categories')
-            //     ->onDelete('CASCADE');
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('CASCADE');
         });
     }
 

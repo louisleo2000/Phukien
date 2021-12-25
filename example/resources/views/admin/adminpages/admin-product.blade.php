@@ -63,12 +63,14 @@
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                             </select>
+                            <a class="font-weight-bold" style="margin-left: 10px; text-decoration: underline;" href="{{route('admin-product-type')}}"> Thêm loại sản phẩm </a>
                             @else
                             <p>Bạn cần thêm loại sẩn phẩm <a href="{{route('admin-product-type')}}">tại đây!</a></p>
                             @endif
                             @else
                             <p>Bạn cần thêm loại sẩn phẩm <a href="{{route('admin-product-type')}}">tại đây!</a></p>
                             @endif
+
                         </div>
                         <div class="mb-3">
                             <label for="">Đơn vị tính</label>

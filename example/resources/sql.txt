@@ -68,6 +68,9 @@ INSERT INTO product_types(category_id, name, descrip, img,created_at,updated_at)
 (2,'Vòng tay', 'Vòng đeo tay là một loại trang sức đeo ở cổ tay. Vòng đeo tay có thể được làm từ rất nhiều loại chất liệu khác nhau dành cho cả nam và nữ được sử dụng từ lâu trong lịch sử. Đây là một loại trang sức được cấu tạo cơ bản bằng một chuỗi hay một dãi đeo quanh cổ tay để làm đẹp.', 'https://eropi.com/media/wysiwyg/tin-tuc-4/vong-tay-va-lac-tay-co-khac-nhau-khong_8_.jpg', NOW(),NOW()),
 (2,'Đồng hồ', 'Phái đẹp ngày càng có xu hướng lựa chọn phụ kiện là đồng hồ, bởi đây là món phụ kiện không hề kén trang phục, và hầu như phù hợp với mọi hoàn cảnh. Chỉ với một chiếc đồng hồ đeo tay cũng đã đủ tạo điểm nhấn tinh tế cho phong cách thời trang và vẻ ngoài thanh lịch cho bất cứ chị em nào. ', 'https://cf.shopee.vn/file/d4756a4f3b30114409279bc4e2a3588e', NOW(),NOW())
 
+INSERT INTO categories(name,created_at,updated_at) VALUES
+('Phụ kiện tóc', NOW(),NOW()),
+('Phụ kiện trang sức',NOW(),NOW())
 
 CREATE TABLE Hoadon(
 maHD char(8) not null,

@@ -59,12 +59,14 @@
                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                 @endforeach
                             </select>
+                            <a class="font-weight-bold" style="margin-left: 10px;text-decoration: underline;" href="{{route('admin-categories')}}"> Thêm danh mục sản phẩm </a>
                             @else
                             <p>Bạn cần thêm danh mục sản phẩm trước<a href="{{route('admin-categories')}}"> tại đây</a></p>
                             @endif
                             @else
                             <p>Bạn cần thêm danh mục sản phẩm trước<a href="{{route('admin-categories')}}"> tại đây</a></p>
                             @endif
+
                         </div>
 
                         <div class="mb-3">

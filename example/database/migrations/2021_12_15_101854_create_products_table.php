@@ -15,8 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
 
-            $table->id();
-            $table->integer('product_type_id');
+            $table->increments('id');
+            $table->integer('product_type_id')->unsigned();
             $table->string('name');
             $table->text('descrip');
             $table->string('img');
@@ -26,9 +26,9 @@ class CreateProductsTable extends Migration
             $table->float('unit_price');
             $table->float('promo_price');
             $table->timestamps();
-            // $table->foreign('product_type_id')
-            //     ->references('id')->on('product_types')
-            //     ->onDelete('cascade');
+            $table->foreign('product_type_id')
+                ->references('id')->on('product_types')
+                ->onDelete('cascade');
         });
     }
 

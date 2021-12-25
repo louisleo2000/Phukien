@@ -26,6 +26,10 @@ Route::get('/checkout', function () {
     return view('pages.checkout');
 })->middleware(['auth'])->name('checkout');
 
+Route::get('/cart', function () {
+    return view('pages.cart');
+})->middleware(['auth'])->name('cart');
+
 Route::get('/about', function () {
     return view('pages.gioithieu');
 })->name('about');

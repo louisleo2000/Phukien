@@ -33,7 +33,7 @@
                          <a href="#">
 
                              <i class="far fa-heart"></i>
-                             <span>Yêu thích</span>
+                             <span style="color: black;">Yêu thích</span>
                              <div class="qty">2</div>
                          </a>
                      </div>
@@ -43,7 +43,7 @@
                      <div class="dropdown">
                          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                              <i class="fa fa-shopping-cart"></i>
-                             <span>Giỏ hàng</span>
+                             <span style="color: black;">Giỏ hàng</span>
                              <div class="qty">3</div>
                          </a>
                          <div class="cart-dropdown">
@@ -86,7 +86,7 @@
                                  <h5>Tổng: 90.000đ</h5>
                              </div>
                              <div class="cart-btns">
-                                 <a href="#">Xem giỏ hàng</a>
+                                 <a href="{{route('cart')}}">Xem giỏ hàng</a>
                                  <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
                              </div>
                          </div>
