@@ -110,14 +110,14 @@
                                                 <div class="product-rating">
                                                     {{ratingStar($item->rating)}}
                                                 </div>
-                                                <div class="product-btns">
+                                                <!-- <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="far fa-heart"></i><span class="tooltipp"> Yêu thích</span></button>
 
                                                     <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                                <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
                                             </div>
                                         </a>
                                     </div>
@@ -151,14 +151,14 @@
                                                 <div class="product-rating">
                                                     {{ratingStar($item->rating)}}
                                                 </div>
-                                                <div class="product-btns">
+                                                <!-- <div class="product-btns">
                                                     <button class="add-to-wishlist"><i class="far fa-heart"></i><span class="tooltipp"> Yêu thích</span></button>
 
                                                     <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="add-to-cart">
-                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                                <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
                                             </div>
                                         </a>
                                     </div>
@@ -710,6 +710,43 @@
         <!-- /container -->
     </div>
     <!-- /SECTION -->
-
 </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+
+    @include('layouts.modal-product')
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+
+
+    // When the user clicks the button, open the modal 
+    function viewDetails(id) {
+
+        let url = window.location.origin + "/detail/" + id;
+        $.ajax({
+                url: url,
+                type: "get",
+            })
+            .done(function(data) {
+                $("#myModal").html(data.html);
+                modal.style.display = "block";
+            })
+            .fail(function(jqXHR, ajaxOptions, thrownError) {
+                alert('Máy chủ không phản hồi...');
+            });
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 @endsection

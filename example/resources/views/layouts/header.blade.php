@@ -44,52 +44,37 @@
                          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                              <i class="fa fa-shopping-cart"></i>
                              <span style="color: black;">Giỏ hàng</span>
-                             <div class="qty">3</div>
+                             @if(Auth::user() != null)
+                             <div class="qty">{{Auth::user()->cart->total_quantity}}</div>
+                             @endif
                          </a>
+                         @if(Auth::user() != null)
                          <div class="cart-dropdown">
                              <div class="cart-list">
+                                 @foreach(Auth::user()->cart->cartdetails as $cartItem)
                                  <div class="product-widget">
                                      <div class="product-img">
-                                         <img src="./img/product01.jfif" alt="">
+                                         <img src="{{$cartItem->product->img}}" alt="">
                                      </div>
                                      <div class="product-body">
-                                         <h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-                                         <h4 class="product-price"><span class="qty">1x</span>30.000đ</h4>
+                                         <h3 class="product-name"><a href="{{route('product-details',$cartItem->product_id)}}">{{$cartItem->product->name}}</a></h3>
+                                         <h4 class="product-price"><span class="qty">{{$cartItem->quantity}}x</span> {{number_format($cartItem->product->promo_price,0, "," ,  ".")}}</h4>
                                      </div>
                                      <button class="delete"><i class="fas fa-times"></i></button>
                                  </div>
+                                 @endforeach
 
-                                 <div class="product-widget">
-                                     <div class="product-img">
-                                         <img src="./img/product02.jfif" alt="">
-                                     </div>
-                                     <div class="product-body">
-                                         <h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-                                         <h4 class="product-price"><span class="qty">3x</span>30.000đ</h4>
-                                     </div>
-                                     <button class="delete"><i class="fas fa-times"></i></button>
-                                 </div>
-
-                                 <div class="product-widget">
-                                     <div class="product-img">
-                                         <img src="./img/product03.jfif" alt="">
-                                     </div>
-                                     <div class="product-body">
-                                         <h3 class="product-name"><a href="#">Tên sản phẩm</a></h3>
-                                         <h4 class="product-price"><span class="qty">3x</span>30.000đ</h4>
-                                     </div>
-                                     <button class="delete"><i class="fas fa-times"></i></button>
-                                 </div>
                              </div>
                              <div class="cart-summary">
-                                 <small>3 món hàng đã được chọn</small>
-                                 <h5>Tổng: 90.000đ</h5>
+                                 <small>{{count(Auth::user()->cart->cartdetails)}} sản phẩm đã được chọn</small>
+                                 <h5>{{number_format(Auth::user()->cart->total_price,0, "," ,  ".")}}</h5>
                              </div>
                              <div class="cart-btns">
                                  <a href="{{route('cart')}}">Xem giỏ hàng</a>
                                  <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
                              </div>
                          </div>
+                         @endif
                      </div>
                      <!-- /Cart -->
 

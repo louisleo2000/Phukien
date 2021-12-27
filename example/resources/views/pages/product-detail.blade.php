@@ -78,31 +78,35 @@
                             <span class="product-available">In Stock</span>
                         </div>
 
+                        <form id="myform" method="post">
+                            @csrf
+                            <div class="product-options">
 
-                        <div class="product-options">
-
-                            <label>
-                                Màu sắc
-                                <select class="input-select" style="font-size:16px;">
-                                    @foreach($mausac as $mau)
-                                    <option value="{{$mau}}">{{$mau}}</option>
-                                    @endforeach
-                                </select>
-                            </label>
-                        </div>
-
-                        <div class="add-to-cart">
-                            <div class="qty-label">
-                                Số lượng
-                                <div class="input-number">
-                                    <input type="number" value="0">
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
-                                </div>
+                                <label>
+                                    Màu sắc
+                                    <select class="input-select" style="font-size:16px;" name="color">
+                                        @foreach($mausac as $mau)
+                                        <option value="{{$mau}}">{{$mau}}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
                             </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                        </div>
 
+                            <div class="add-to-cart">
+                                <div class="qty-label">
+                                    Số lượng
+                                    <div class="input-number">
+                                        <input type="number" value="1" min="1" name="quantity">
+                                        <span class="qty-up">+</span>
+                                        <span class="qty-down">-</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="add-to-cart">
+                            <button onclick="add2Cart(<?php echo ($product->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                        </div>
                         <ul class="product-btns">
                             <li><a href="#"><i class="fa fa-heart-o"></i> Yêu thích</a></li>
 
@@ -110,7 +114,7 @@
 
                         <ul class="product-links">
                             <li>Thể loại:</li>
-                            <li><a href="#">{{$loaisp->name}}</a></li>
+                            <li><a href="#">{{$product->productTypes->name}}</a></li>
                             <li><a href="#">Gấu bông</a></li>
                         </ul>
 

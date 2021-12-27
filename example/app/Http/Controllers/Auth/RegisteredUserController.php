@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -44,10 +45,16 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $cart = Cart::create([
+            'user_id' => $user->id,
+
+        ]);
+
 
         event(new Registered($user));
         Auth::login($user);
-        $request->user()->sendEmailVerificationNotification();
-        return redirect(RouteServiceProvider::VERIFY);
+        // $request->user()->sendEmailVerificationNotification();
+        //return redirect(RouteServiceProvider::VERIFY);
+        return redirect(RouteServiceProvider::HOME);
     }
 }

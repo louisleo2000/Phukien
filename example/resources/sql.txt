@@ -81,5 +81,78 @@ PRIMARY KEY(mahd)
 
 
 
+UPDATE cart_details
+SET quantity = 10
+WHERE cart_id=2 AND product_id =  2
+
+--------------TRIGGER--------------
+DROP TRIGGER IF EXISTS inCarts;
+DELIMITER $$
+CREATE TRIGGER inCarts AFTER INSERT
+
+ ON cart_details
+
+ FOR EACH ROW
+
+ BEGIN
+
+    UPDATE carts
+   SET total_price = (SELECT (SUM(total))
+						FROM cart_details, carts
+                        WHERE NEW.cart_id = carts.id  and NEW.cart_id = cart_details.cart_id),
+        total_quantity = (SELECT (SUM(quantity))
+						FROM cart_details, carts
+                        WHERE NEW.cart_id = carts.id  and NEW.cart_id = cart_details.cart_id)
+     
+     WHERE NEW.cart_id = carts.id;
+END$$
+
+DELIMITER ;
 
 
+DROP TRIGGER IF EXISTS upCarts;
+DELIMITER $$
+CREATE TRIGGER upCarts AFTER UPDATE
+
+ ON cart_details
+
+ FOR EACH ROW
+
+ BEGIN
+
+    UPDATE carts
+   SET total_price = (SELECT (SUM(total))
+						FROM cart_details, carts
+                        WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id),
+        total_quantity = (SELECT (SUM(quantity))
+						FROM cart_details, carts
+                        WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id)
+     
+     WHERE OLD.cart_id = carts.id;
+END$$
+
+DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS delCarts;
+DELIMITER $$
+CREATE TRIGGER delCarts AFTER DELETE
+
+ ON cart_details
+
+ FOR EACH ROW
+
+ BEGIN
+
+    UPDATE carts
+    SET total_price = (SELECT (SUM(total))
+						FROM cart_details, carts
+                        WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id),
+        total_quantity = (SELECT (SUM(quantity))
+						FROM cart_details, carts
+                        WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id)
+     
+     WHERE OLD.cart_id = carts.id;
+END$$
+
+DELIMITER ;

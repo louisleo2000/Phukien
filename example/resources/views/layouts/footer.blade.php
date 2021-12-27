@@ -77,3 +77,21 @@
     <script src="{{ URL::asset('js/nouislider.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.zoom.min.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script>
+        function add2Cart(id) {
+            let url = window.location.origin + "/cart/" + id;
+            console.log(url)
+            $.ajax({
+                    url: url,
+                    type: "post",
+                    dataType: "text",
+                    data: $('#myform').serialize(),
+                })
+                .done(function(response) {
+                    alert('đã thêm vào giỏ');
+
+                }).fail(function(jqXHR, ajaxOptions, thrownError) {
+                    alert('Máy chủ không phản hồi...');
+                });
+        }
+    </script>
