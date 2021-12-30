@@ -219,7 +219,7 @@
     var lastpage = parseInt(div.textContent);
     var page = 1;
     $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() + 100 >= $(document).height()) {
+        if ($(window).scrollTop() + $(window).height() + 50 >= $(document).height()) {
 
             if (page <= (lastpage + 1)) {
                 page++;

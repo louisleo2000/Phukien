@@ -30,20 +30,51 @@
                  <div class="header-ctn">
                      <!-- Wishlist -->
                      <div>
-                         <a href="#">
+                         @if(Auth::user() != null)
+                         <div class="dropdown">
+                             <button class="btn btn-secondary dropdown-toggle" style="background-color: #FFB0BD;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 <div style="margin-left: 5px; color: maroon; ">
+                                     <i class="fas fa-user-circle " style="margin-right: 5px;font-size: 20px;margin-left: -10px;"></i>{{ Auth::user()->name}}
+                                     <i class="fas fa-chevron-down " style="font-size: 11px;"></i>
+                                 </div>
+                             </button>
+                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                 <form method="POST" action="{{ route('logout') }}">
+                                     @csrf
+                                     <a :href="route('logout')" class="dropdown-item " onclick="event.preventDefault();
+                                                this.closest('form').submit();" style="font-size: 16px; ">
+                                         Đăng xuất
+                                     </a>
+                                 </form>
+                                 @if(Auth::user()->role == 'admin')
+                                 <a class="dropdown-item" style="font-weight: bold;" href="{{route('dashboard')}}">Dash board</a>
+                                 @endif
+                                 <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+
+                             </div>
+                         </div>
+
+                         @else
+
+                         <a href="{{ route('login') }}">
+                             Đăng nhập
+                         </a>
+
+                         @endif
+                         <!-- <a href="#">
 
                              <i class="far fa-heart"></i>
                              <span style="color: black;">Yêu thích</span>
                              <div class="qty">2</div>
-                         </a>
+                         </a> -->
                      </div>
                      <!-- /Wishlist -->
 
                      <!-- Cart -->
-                     <div class="dropdown">
+                     <div class="dropdown" style="margin-left: -20px;">
                          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                             <i class="fa fa-shopping-cart"></i>
-                             <span style="color: black;">Giỏ hàng</span>
+                             <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>
+
                              @if(Auth::user() != null)
                              <div class="qty">{{Auth::user()->cart->total_quantity}}</div>
                              @endif
@@ -57,7 +88,7 @@
                                          <img src="{{$cartItem->product->img}}" alt="">
                                      </div>
                                      <div class="product-body">
-                                         <h3 class="product-name"><a href="{{route('product-details',$cartItem->product_id)}}">{{$cartItem->product->name}}</a></h3>
+                                         <h3 class="product-name"><a href="{{route('product-details',$cartItem->product_id)}}">{{mb_strimwidth($cartItem->product->name, 0, 35, "...");}}</a></h3>
                                          <h4 class="product-price"><span class="qty">{{$cartItem->quantity}}x</span> {{number_format($cartItem->product->promo_price,0, "," ,  ".")}}</h4>
                                      </div>
                                      <button class="delete"><i class="fas fa-times"></i></button>
@@ -67,7 +98,7 @@
                              </div>
                              <div class="cart-summary">
                                  <small>{{count(Auth::user()->cart->cartdetails)}} sản phẩm đã được chọn</small>
-                                 <h5>{{number_format(Auth::user()->cart->total_price,0, "," ,  ".")}}</h5>
+                                 <h5>Tổng: {{number_format(Auth::user()->cart->total_price,0, "," ,  ".")}}đ </h5>
                              </div>
                              <div class="cart-btns">
                                  <a href="{{route('cart')}}">Xem giỏ hàng</a>

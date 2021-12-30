@@ -13,43 +13,69 @@
         -moz-appearance: textfield;
     }
 </style>
-<div class="container">
-    <div class="cart-table ">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="pro-thumbnail">HÌnh ảnh</th>
-                    <th class="pro-title">Sản phẩm</th>
-                    <th class="pro-price">Giá</th>
-                    <th class="pro-quantity">số lượng</th>
-                    <th class="pro-subtotal">Tổng</th>
-                    <th class="pro-remove">Xóa</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($list as $item)
-                <tr>
-                    <td class="pro-thumbnail"><a href="{{route('product-details',$item->product_id)}}"><img src="{{$item->product->img}}" alt="Product"></a></td>
-                    <td class="pro-title">
-                        <div>
-                            <p><a href="{{route('product-details',$item->product_id)}}">{{$item->product->name}}</a></p>
-                            <p style="color: black;">
-                                Màu sắc: {{$item->color}}
-                            </p>
-                        </div>
-                    </td>
-                    <td class="pro-price"><span>{{number_format($item->product->promo_price,0, "," ,  ".")}}</span>
+<div class="container" id="datacart">
+    @include('layouts.cart-details')
 
-                    </td>
-                    <td class="pro-quantity">
-                        <div class="pro-qty"><input type="number" value="{{$item->quantity}}"></div>
-                    </td>
-                    <td class="pro-subtotal"><span>{{number_format($item->total,0, "," ,  ".")}}</span></td>
-                    <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
 </div>
+<div class="sticky-bottom" id="stick">
+    <div class="modal-content row" style="width: 80%; padding: 20px;">
+        <div class="col-md-6">
+            <p style="font-weight: bold; font-size: 20px;">Đã chọn {{Auth::user()->cart->total_quantity}} sản phẩm</p>
+        </div>
+        <div class="col-md-4">
+            <div class="">
+                <p style="font-weight: bold; font-size: 20px;">Tổng thanh toán: {{number_format(Auth::user()->cart->total_price,0,",",".")}}VNĐ</p>
+            </div>
+
+            <div>
+                <a href="{{route('checkout')}}" class="primary-btn" style="font-weight: bold; font-size: 20px;">Mua hàng</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<script>
+    let bot = document.getElementById('stick');
+    $(window).scroll(function() {
+        if ($(window).scrollTop() + $(window).height() + 200 >= $(document).height()) {
+
+            bot.style.position = 'static'
+
+        } else if ($(window).scrollTop() + $(window).height() < $(document).height() - 350) {
+            bot.style.position = 'fixed'
+        }
+    });
+
+    function viewCartDetails() {
+
+        let url = window.location.origin + "/cart";
+        $.ajax({
+                url: url,
+                type: "get",
+            })
+            .done(function(data) {
+                $("#datacart").html(data.html);
+                modal.style.display = "block";
+            })
+            .fail(function(jqXHR, ajaxOptions, thrownError) {
+                alert('Máy chủ không phản hồi...');
+            });
+    }
+
+    function delCart(id) {
+        let url = window.location.origin + "/cart/" + id;;
+        $.ajax({
+                url: url,
+                type: "get",
+            })
+            .done(function(response) {
+                viewCartDetails()
+            })
+            .fail(function(jqXHR, ajaxOptions, thrownError) {
+                alert('Máy chủ không phản hồi...');
+            });
+    }
+</script>
 @endsection

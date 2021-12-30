@@ -100,7 +100,7 @@ CREATE TRIGGER inCarts AFTER INSERT
    SET total_price = (SELECT (SUM(total))
 						FROM cart_details, carts
                         WHERE NEW.cart_id = carts.id  and NEW.cart_id = cart_details.cart_id),
-        total_quantity = (SELECT (SUM(quantity))
+        total_quantity = (SELECT (COUNT(quantity))
 						FROM cart_details, carts
                         WHERE NEW.cart_id = carts.id  and NEW.cart_id = cart_details.cart_id)
      
@@ -124,7 +124,7 @@ CREATE TRIGGER upCarts AFTER UPDATE
    SET total_price = (SELECT (SUM(total))
 						FROM cart_details, carts
                         WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id),
-        total_quantity = (SELECT (SUM(quantity))
+        total_quantity = (SELECT (COUNT(quantity))
 						FROM cart_details, carts
                         WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id)
      
@@ -148,7 +148,7 @@ CREATE TRIGGER delCarts AFTER DELETE
     SET total_price = (SELECT (SUM(total))
 						FROM cart_details, carts
                         WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id),
-        total_quantity = (SELECT (SUM(quantity))
+        total_quantity = (SELECT (COUNT(quantity))
 						FROM cart_details, carts
                         WHERE OLD.cart_id = carts.id  and OLD.cart_id = cart_details.cart_id)
      

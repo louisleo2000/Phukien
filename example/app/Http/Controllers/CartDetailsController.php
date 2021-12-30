@@ -17,7 +17,7 @@ class CartDetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $details = Auth::user()->cart->cartdetails;
@@ -25,7 +25,11 @@ class CartDetailsController extends Controller
         $data = array(
             'list' => $details
         );
+        if ($request->ajax()) {
 
+            $view = view('layouts.cart-details', $data)->render();
+            return response()->json(['html' => $view]);
+        }
         return view('pages.cart', $data);
     }
 
@@ -68,6 +72,17 @@ class CartDetailsController extends Controller
 
             return response()->json(['fail' => 'không thành công,sản phẩm đã có trong giỏ']);
         }
+    }
+    function remove(Request $request, $id)
+    {
+        $sp = CartDetails::where('cart_id', Auth::user()->id)->where('product_id', $id)->first();
+        if ($sp != null)
+            if ($request->ajax()) {
+                if ($sp->delete()) {
+                    return response()->json(['success', $sp], 200);
+                } else
+                    return response()->json(['fail'  => 'không thành công'], 200);
+            }
     }
     /**
      * Store a newly created resource in storage.

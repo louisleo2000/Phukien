@@ -113,7 +113,7 @@ ol {
 
 .primary-btn:hover,
 .primary-btn:focus {
-    opacity: 0.9;
+    opacity: 0.5;
     color: #fff;
 }
 
@@ -2451,7 +2451,7 @@ textarea.input {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    border: 1px solid #888;
+    border: 0px solid #888;
     width: 60%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
@@ -2499,7 +2499,7 @@ textarea.input {
 }
 
 .modal-header {
-    padding: 2px 16px;
+    padding: 16px 16px;
     background-color: #ffb0bd;
     color: white;
     border-top-left-radius: 5px;
@@ -2507,14 +2507,27 @@ textarea.input {
 }
 
 .modal-body {
-    padding: 2px 16px;
+    padding: 16px 16px;
 }
 
 .modal-footer {
     margin-top: 2px;
-    padding: 2px 16px;
+    padding: px 16px;
     background-color: #ffb0bd;
     color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+.sticky-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+
+    text-align: center;
+    z-index: 11;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0); /* Black w/ opacity */
 }
