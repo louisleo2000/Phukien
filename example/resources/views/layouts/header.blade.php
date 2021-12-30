@@ -56,7 +56,7 @@
 
                          @else
 
-                         <a href="{{ route('login') }}">
+                         <a class="a1" href="{{ route('login') }}">
                              Đăng nhập
                          </a>
 

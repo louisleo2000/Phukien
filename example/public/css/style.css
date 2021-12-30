@@ -85,6 +85,18 @@ a:focus {
     text-decoration: none;
     outline: none;
 }
+.a1 {
+    color: #2b2d42;
+    font-weight: 500;
+    -webkit-transition: 0.2s color;
+    transition: 0.2s color;
+}
+.a1:hover,
+.a1:focus {
+    color: #d10024;
+    text-decoration: none;
+    outline: none;
+}
 
 ul,
 ol {
@@ -535,7 +547,7 @@ textarea.input {
     position: relative;
     width: 90px;
     text-align: center;
-    color: #fff;
+    /* color: #fff; */
 }
 
 .header-ctn > div > a > i {
