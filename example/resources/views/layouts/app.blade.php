@@ -40,7 +40,7 @@
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
 
-
+    @livewireStyles
 </head>
 <?php
 function rating($number)
@@ -57,8 +57,7 @@ function rating($number)
 
         <header>
             @include('layouts.topheader')
-            @include('layouts.header')
-
+            @livewire('header')
         </header>
         @include('layouts.botheader')
 

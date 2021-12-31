@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="add-to-cart">
-                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
+                <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
             </div>
         </div>
     </div>

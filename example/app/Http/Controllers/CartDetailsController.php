@@ -73,6 +73,34 @@ class CartDetailsController extends Controller
             return response()->json(['fail' => 'không thành công,sản phẩm đã có trong giỏ']);
         }
     }
+
+    function update(Request $request, $id, $quantity)
+    {
+        $details = Auth::user()->cart->cartdetails;
+
+        $data = array(
+            'list' => $details
+        );
+        if ($request->ajax()) {
+            $sp = Product::find($id);
+            $current = CartDetails::where('cart_id', "=", Auth::user()->id)->where('product_id', '=', $id)->first();
+
+            if ($current != null) {
+                $current->quantity = $quantity;
+                $current->total = $sp->promo_price * $quantity;
+                if ($current->save()) {
+                    $details = CartDetails::where('cart_id', "=", Auth::user()->id)->get();;
+                    $data = array(
+                        'list' => $details
+                    );
+                    $view = view('layouts.cart-details', $data)->render();
+                    return response()->json(['html' => $view]);
+                }
+            }
+            return view('pages.cart', $data);
+        }
+    }
+
     function remove(Request $request, $id)
     {
         $sp = CartDetails::where('cart_id', Auth::user()->id)->where('product_id', $id)->first();
@@ -120,17 +148,17 @@ class CartDetailsController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCartDetailsRequest  $request
-     * @param  \App\Models\CartDetails  $cartDetails
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateCartDetailsRequest $request, CartDetails $cartDetails)
-    {
-        //
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \App\Http\Requests\UpdateCartDetailsRequest  $request
+    //  * @param  \App\Models\CartDetails  $cartDetails
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(UpdateCartDetailsRequest $request, CartDetails $cartDetails)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.

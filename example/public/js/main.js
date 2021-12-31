@@ -172,20 +172,40 @@
 /*----- 
 	Quantity
 --------------------------------*/
-$(".pro-qty").prepend('<span class="dec qtybtn">-</span>');
-$(".pro-qty").append('<span class="inc qtybtn">+</span>');
+function updateCartDetails(id, quantity) {
+    let url = window.location.origin + "/cart/" + id + "/" + quantity;
+    console.log(url);
+    $.ajax({
+        url: url,
+        type: "get",
+    })
+        .done(function (data) {
+            Livewire.emit("resfreshHeader");
+            Livewire.emit("resfreshCart");
+            // viewCartDetails();
+        })
+        .fail(function (jqXHR, ajaxOptions, thrownError) {
+            alert("Máy chủ không phản hồi...");
+        });
+}
 $(".qtybtn").on("click", function () {
     var $button = $(this);
-    var oldValue = $button.parent().find("input").val();
+    var $ip = $button.parent().find("input");
+    var oldValue = $ip.val();
+    var id = $ip[0].attributes["product_id"].value;
+    console.log(id);
+
     if ($button.hasClass("inc")) {
         var newVal = parseFloat(oldValue) + 1;
     } else {
         // Don't allow decrementing below zero
-        if (oldValue > 0) {
+        if (oldValue > 1) {
             var newVal = parseFloat(oldValue) - 1;
         } else {
-            newVal = 0;
+            newVal = 1;
         }
     }
+
     $button.parent().find("input").val(newVal);
+    updateCartDetails(id, newVal);
 });

@@ -77,6 +77,7 @@
     <script src="{{ URL::asset('js/nouislider.min.js') }}"></script>
     <script src="{{ URL::asset('js/jquery.zoom.min.js') }}"></script>
     <script src="{{ URL::asset('js/main.js') }}"></script>
+    <script src="/livewire/livewire.js"></script>
     <script>
         function add2Cart(id) {
             let url = window.location.origin + "/cart/" + id;
@@ -89,9 +90,40 @@
                 })
                 .done(function(response) {
                     alert('đã thêm vào giỏ');
+                    Livewire.emit('resfreshHeader');
 
                 }).fail(function(jqXHR, ajaxOptions, thrownError) {
                     alert('Máy chủ không phản hồi...');
                 });
         }
     </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+        // When the user clicks the button, open the modal 
+        function viewDetails(id) {
+
+            let url = window.location.origin + "/detail/" + id;
+            $.ajax({
+                    url: url,
+                    type: "get",
+                })
+                .done(function(data) {
+                    $("#myModal").html(data.html);
+                    modal.style.display = "block";
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError) {
+                    alert('Máy chủ không phản hồi...');
+                });
+        }
+    </script>
+
+    @livewireScripts

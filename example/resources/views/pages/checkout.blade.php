@@ -11,10 +11,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="breadcrumb-header">Thanh toán</h3>
-                    <ul class="breadcrumb-tree">
+                    <!-- <ul class="breadcrumb-tree">
                         <li><a href="#">Home</a></li>
                         <li class="active">Thanh toán</li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
             <!-- /row -->

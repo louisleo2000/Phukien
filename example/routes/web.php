@@ -31,6 +31,7 @@ Route::get('/checkout', function () {
 
 Route::get('/cart', [CartDetailsController::class, 'index'])->middleware(['auth'])->name('cart');
 Route::post('/cart/{id}', [CartDetailsController::class, 'add'])->middleware(['auth'])->name('cart.add');
+Route::get('/cart/{id}/{quantity}', [CartDetailsController::class, 'update'])->middleware(['auth'])->name('cart.update');
 Route::get('/cart/{id}', [CartDetailsController::class, 'remove'])->middleware(['auth'])->name('cart.remove');
 
 Route::get('/about', function () {

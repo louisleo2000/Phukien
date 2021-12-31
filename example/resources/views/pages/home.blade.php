@@ -718,35 +718,5 @@
     @include('layouts.modal-product')
 </div>
 
-<script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-
-
-    // When the user clicks the button, open the modal 
-    function viewDetails(id) {
-
-        let url = window.location.origin + "/detail/" + id;
-        $.ajax({
-                url: url,
-                type: "get",
-            })
-            .done(function(data) {
-                $("#myModal").html(data.html);
-                modal.style.display = "block";
-            })
-            .fail(function(jqXHR, ajaxOptions, thrownError) {
-                alert('Máy chủ không phản hồi...');
-            });
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
 
 @endsection
