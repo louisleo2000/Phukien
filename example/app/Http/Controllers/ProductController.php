@@ -18,22 +18,22 @@ class ProductController extends Controller
      */
     function index(Request $request)
     {
-        $list = Product::orderBy('name', 'ASC')->paginate(6);
-        $listtype = ProductType::all();
-        $categories = Category::all();
+        // $list = Product::orderBy('name', 'ASC')->paginate(6);
+        // $listtype = ProductType::all();
+        // $categories = Category::all();
 
-        $data = array(
-            'listproducts' => $list,
-            'listtype' => $listtype,
-            'categories' => $categories
+        // $data = array(
+        //     'listproducts' => $list,
+        //     'listtype' => $listtype,
+        //     'categories' => $categories
 
-        );
-        if ($request->ajax()) {
-            if ($list->lastPage())
-                $view = view('pages.more-product', $data)->render();
-            return response()->json(['html' => $view]);
-        }
-        return view('pages.products', $data);
+        // );
+        // if ($request->ajax()) {
+        //     if ($list->lastPage())
+        //         $view = view('pages.more-product', $data)->render();
+        //     return response()->json(['html' => $view]);
+        // }
+        return view('pages.products');
     }
 
     function details($product_id)
@@ -41,14 +41,14 @@ class ProductController extends Controller
         $prod = Product::where('id', '=', $product_id)->first();
         if (!$prod)
             return 'Không tìm thấy trang';
-        $loaisp = $prod->productTypes;
-        // $danhmuc = DanhMuc::where("madm", '=', $loaisp->madm)->first();
+
+        $tuogntu = Product::where("product_type_id", '=', $prod->product_type_id)->where("id", '!=', $prod->id)->limit(4)->get();
+
         $mausac = explode(",", $prod->color);
         $products = array(
             'product' => $prod,
             'mausac' => $mausac,
-            'loaisp' => $loaisp,
-            // 'danhmuc' => $danhmuc
+            'tuogntu' => $tuogntu
         );
         if ($prod)
             return view('pages.product-detail', $products);

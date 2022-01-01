@@ -154,11 +154,11 @@ textarea.input {
     position: relative;
 }
 
-.input-number input[type="number"]::-webkit-inner-spin-button,
+/* .input-number input[type="number"]::-webkit-inner-spin-button,
 .input-number input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-}
+} */
 
 .input-number input[type="number"] {
     -moz-appearance: textfield;
@@ -166,7 +166,7 @@ textarea.input {
     width: 100%;
     border: 1px solid #e4e7ed;
     background-color: #fff;
-    padding: 0px 35px 0px 15px;
+    padding: 15px;
 }
 
 .input-number .qty-up,
@@ -501,22 +501,22 @@ textarea.input {
     padding: 15px 20px;
 }
 
-.header-search form {
+.header-search {
     position: relative;
 }
 
-.header-search form .input-select {
+.header-search .input-select {
     margin-right: -4px;
     border-radius: 40px 0px 0px 40px;
 }
 
-.header-search form .input {
+.header-search .input {
     width: calc(100% - 260px);
     margin-right: -4px;
     margin-top: -2px;
 }
 
-.header-search form .search-btn {
+.header-search .search-btn {
     height: 40px;
     background: #ffb0bd;
     color: #fff;
@@ -956,7 +956,7 @@ textarea.input {
     padding: 15px;
     background-color: #fff;
     text-align: center;
-    z-index: 2;
+    z-index: 10;
 }
 
 .product .product-body .product-category {
@@ -2367,7 +2367,7 @@ textarea.input {
     color: #444444;
 }
 
-.cart-table td.pro-quantity .pro-qty {
+.cart-table .pro-quantity .pro-qty {
     width: 90px;
     height: 35px;
     border: 1px solid #999999;
@@ -2376,7 +2376,7 @@ textarea.input {
     display: block;
     margin: auto;
 }
-.cart-table td.pro-quantity .pro-qty .qtybtn {
+.cart-table .pro-quantity .pro-qty .qtybtn {
     width: 15px;
     display: block;
     float: left;
@@ -2387,7 +2387,8 @@ textarea.input {
     font-weight: 700;
     color: #444444;
 }
-.cart-table td.pro-quantity .pro-qty input {
+
+.cart-table .pro-quantity .pro-qty input {
     width: 28px;
     float: left;
     border: none;
@@ -2398,12 +2399,12 @@ textarea.input {
     background-color: transparent;
 }
 @media only screen and (max-width: 767px) {
-    .cart-table td.pro-quantity .pro-qty {
+    .cart-table .pro-quantity .pro-qty {
         margin: 0;
     }
 }
 
-.cart-table td.pro-subtotal span {
+.cart-table .pro-subtotal span {
     display: block;
     font-size: 15px;
     font-weight: 600;

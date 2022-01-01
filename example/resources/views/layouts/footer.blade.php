@@ -124,6 +124,26 @@
                     alert('Máy chủ không phản hồi...');
                 });
         }
+
+        function delCart(id) {
+            let choice = confirm("Có chắc muốn xóa?");
+            if (choice) {
+                let url = window.location.origin + "/cart/" + id;;
+                $.ajax({
+                        url: url,
+                        type: "get",
+                    })
+                    .done(function(response) {
+                        Livewire.emit('resfreshHeader');
+                        Livewire.emit('resfreshCart');
+                        // viewCartDetails();
+
+                    })
+                    .fail(function(jqXHR, ajaxOptions, thrownError) {
+                        alert('Máy chủ không phản hồi...');
+                    });
+            }
+        }
     </script>
 
     @livewireScripts

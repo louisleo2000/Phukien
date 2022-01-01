@@ -34,7 +34,7 @@
                                 <i class="fas fa-minus" style="font-size:10px;"></i>
                             </span>
 
-                            <input min="1" product_id="{{$item->product_id}}" type="number" data-price="{{$item->product->promo_price}}" value="{{$item->quantity}}">
+                            <input min="1" product_id="{{$item->product_id}}" type="number" value="{{$item->quantity}}">
 
                             <span class="inc qtybtn">
                                 <i class="fas fa-plus" style="font-size:10px;"></i>

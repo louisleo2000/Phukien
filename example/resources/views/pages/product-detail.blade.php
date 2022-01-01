@@ -1,29 +1,19 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
 <div>
-
-    <!-- BREADCRUMB -->
-    <div id="breadcrumb" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb-tree">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">{{$loaisp->name}}</a></li>
-
-                        <!-- <li class="active">Tên sản phẩm</li> -->
-                    </ul>
-                </div>
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /BREADCRUMB -->
-
     <!-- SECTION -->
     <div class="section">
         <!-- container -->
@@ -101,11 +91,16 @@
                                         <span class="qty-down">-</span>
                                     </div>
                                 </div>
-
                             </div>
                         </form>
                         <div class="add-to-cart">
+                            @if(Auth::user()!=null)
                             <button onclick="add2Cart(<?php echo ($product->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                            @else
+                            <a onclick="return confirm('Bạn phải đăng nhập để thực hiện thao tác này!')" href="{{route('login')}}">
+                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                            </a>
+                            @endif
                         </div>
                         <ul class="product-btns">
                             <li><a href="#"><i class="fa fa-heart-o"></i> Yêu thích</a></li>
@@ -367,123 +362,43 @@
                     </div>
                 </div>
 
+                @foreach($tuogntu as $item)
                 <!-- product -->
                 <div class="col-md-3 col-xs-6">
                     <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL::asset('./img/product01.jfif')}}" alt="">
-                            <div class="product-label">
-                                <span class="sale">-30%</span>
+                        <a href="{{URL::to('/product-details/'.$item->id)}}">
+                            <div class="product-img">
+                                <img src="{{$item->img}}" alt="">
+                                <div class="product-label">
+                                    <span class="sale">{{$km = round(100-($item->unit_price/$item->promo_price*100))  }}%</span>
+                                    <span class="Mới">Mới</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Loại sản phẩm</p>
-                            <h3 class="product-name"><a href="#">tên sản phẩm ở đây</a></h3>
-                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                            <div class="product-rating">
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
+                            <div class="product-body">
 
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                <h3 class="product-name"><a href="{{URL::to('/product-details/'.$item->id)}}">{{mb_strimwidth($item->name, 0, 30, "...");}}</a></h3>
+                                <h4 class="product-price">{{number_format($item->promo_price,0, "," , ".")}}đ
+                                    <del class="product-old-price" style="margin-left: 3px;">{{number_format($item->unit_price,0, "," ,  ".")}}đ</del>
+                                </h4>
+                                <div class="product-rating">
+                                    {{ratingStar($item->rating)}}
+                                </div>
+                                <!-- <div class="product-btns">
+                                                    <button class="add-to-wishlist"><i class="far fa-heart"></i><span class="tooltipp"> Yêu thích</span></button>
+
+                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                                </div> -->
                             </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-                        </div>
+                            <div class="add-to-cart">
+                                <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <!-- /product -->
 
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL::asset('./img/product02.jfif')}}" alt="">
-                            <div class="product-label">
-                                <span class="new">Mới</span>
-                            </div>
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Loại sản phẩm</p>
-                            <h3 class="product-name"><a href="#">tên sản phẩm ở đây</a></h3>
-                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
+                @endforeach
 
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL::asset('./img/product03.jfif')}}" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Loại sản phẩm</p>
-                            <h3 class="product-name"><a href="#">tên sản phẩm ở đây</a></h3>
-                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
-
-                <!-- product -->
-                <div class="col-md-3 col-xs-6">
-                    <div class="product">
-                        <div class="product-img">
-                            <img src="{{ URL::asset('./img/product04.jfif')}}" alt="">
-                        </div>
-                        <div class="product-body">
-                            <p class="product-category">Loại sản phẩm</p>
-                            <h3 class="product-name"><a href="#">tên sản phẩm ở đây</a></h3>
-                            <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                            <div class="product-rating">
-                            </div>
-                            <div class="product-btns">
-                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-
-                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                            </div>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- /product -->
 
             </div>
             <!-- /row -->
@@ -493,4 +408,27 @@
     <!-- /Section -->
 
 </div>
+<script>
+    $(".input-number").each(function() {
+        var $this = $(this),
+            $input = $this.find('input[type="number"]'),
+            up = $this.find(".qty-up"),
+            down = $this.find(".qty-down");
+
+        down.on("click", function() {
+            var value = parseInt($input.val()) - 1;
+            value = value < 1 ? 1 : value;
+            $input.val(value);
+            $input.change();
+
+        });
+
+        up.on("click", function() {
+            var value = parseInt($input.val()) + 1;
+            $input.val(value);
+            $input.change();
+
+        });
+    });
+</script>
 @endsection

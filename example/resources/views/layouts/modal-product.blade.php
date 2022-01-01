@@ -1,4 +1,17 @@
 @if(isset($prod))
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
 <div class="modal-content">
     <div class="modal-header">
         <span class="close">&times;</span>
@@ -53,7 +66,13 @@
                 </div>
             </form>
             <div class="add-to-cart">
-                <button onclick="add2Cart(<?php echo ($prod->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                @if(Auth::user()!=null)
+                <button onclick="add2Cart(<?php echo ($product->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                @else
+                <a onclick="return confirm('Bạn phải đăng nhập để thực hiện thao tác này!')" href="{{route('login')}}">
+                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                </a>
+                @endif
             </div>
             <ul class="product-btns">
                 <li><a href="#"><i class="fa fa-heart-o"></i> Yêu thích</a></li>

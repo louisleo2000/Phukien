@@ -18,10 +18,9 @@
                 <!-- SEARCH BAR -->
                 <div class="col-sm-6">
                     <div class="header-search">
-                        <form>
-                            <input class="input" style="border-top-left-radius:20px;border-bottom-left-radius:20px; width: 90%;" placeholder="Tìm kiếm">
-                            <button class="search-btn" style=" width: 10%;"><i class="fas fa-search    "></i></button>
-                        </form>
+                        <input wire:model="search" wire:change="search" class="input" style="border-top-left-radius:20px;border-bottom-left-radius:20px; width: 90%;" placeholder="Tìm kiếm">
+                        <button wire:click="search" class="search-btn" style=" width: 10%;"><i class="fas fa-search"></i></button>
+
                     </div>
                 </div>
                 <!-- /SEARCH BAR -->
@@ -91,7 +90,7 @@
                                             <h3 class="product-name"><a href="{{route('product-details',$cartItem->product_id)}}">{{mb_strimwidth($cartItem->product->name, 0, 35, "...");}}</a></h3>
                                             <h4 class="product-price"><span class="qty">{{$cartItem->quantity}}x</span> {{number_format($cartItem->product->promo_price,0, "," ,  ".")}}</h4>
                                         </div>
-                                        <button class="delete"><i class="fas fa-times"></i></button>
+                                        <button class="delete"><i class="fas fa-times" onclick="delCart(<?php echo ($cartItem->product_id) ?>)"></i></button>
                                     </div>
                                     @endforeach
 

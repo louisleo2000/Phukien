@@ -69,16 +69,16 @@
                          </a> -->
                      </div>
                      <!-- /Wishlist -->
-
+                     @if(Auth::user() != null)
                      <!-- Cart -->
                      <div class="dropdown" style="margin-left: -20px;">
                          <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                              <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>
-                             @if(Auth::user() != null)
+
                              <div class="qty">{{Auth::user()->cart->total_quantity}}</div>
-                             @endif
+
                          </a>
-                         @if(Auth::user() != null)
+
                          <div class="cart-dropdown">
                              <div class="cart-list">
                                  @foreach(Auth::user()->cart->cartdetails as $cartItem)
@@ -104,10 +104,10 @@
                                  <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
                              </div>
                          </div>
-                         @endif
+
                      </div>
                      <!-- /Cart -->
-
+                     @endif
                      <!-- Menu Toogle -->
                      <div class="menu-toggle">
                          <a href="#">
