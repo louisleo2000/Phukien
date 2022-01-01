@@ -67,7 +67,7 @@
             </form>
             <div class="add-to-cart">
                 @if(Auth::user()!=null)
-                <button onclick="add2Cart(<?php echo ($product->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                <button onclick="add2Cart(<?php echo ($prod->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
                 @else
                 <a onclick="return confirm('Bạn phải đăng nhập để thực hiện thao tác này!')" href="{{route('login')}}">
                     <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>

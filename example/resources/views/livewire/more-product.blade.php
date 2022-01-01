@@ -160,7 +160,7 @@
                                     <div class="product-img">
                                         <img src="{{$item->img}}" alt="">
                                         <div class="product-label">
-                                            <span class="sale">-30%</span>
+                                            <span class="sale">{{$km = round(100-($item->unit_price/$item->promo_price*100))  }}%</span>
                                             <span class="Mới">Mới</span>
                                         </div>
                                     </div>

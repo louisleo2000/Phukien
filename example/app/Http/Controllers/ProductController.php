@@ -42,7 +42,11 @@ class ProductController extends Controller
         if (!$prod)
             return 'Không tìm thấy trang';
 
-        $tuogntu = Product::where("product_type_id", '=', $prod->product_type_id)->where("id", '!=', $prod->id)->limit(4)->get();
+        $tuogntu = Product::where("product_type_id", '=', $prod->product_type_id)->where("id", '!=', $prod->id)->inRandomOrder()->limit(4)->get();
+        if (count($tuogntu) == 0) {
+
+            $tuogntu = Product::inRandomOrder()->limit(4)->get();
+        }
 
         $mausac = explode(",", $prod->color);
         $products = array(

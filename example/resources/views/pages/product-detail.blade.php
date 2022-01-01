@@ -408,6 +408,12 @@
     <!-- /Section -->
 
 </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+
+    @include('layouts.modal-product')
+</div>
 <script>
     $(".input-number").each(function() {
         var $this = $(this),

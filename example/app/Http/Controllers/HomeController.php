@@ -31,16 +31,16 @@ class HomeController extends Controller
     }
     function details(Request $request, $id)
     {
-        if ($request->ajax()) {
-            $sp = Product::find($id);
-            $mausac = explode(",", $sp->color);
-            $product = array(
-                'prod' => $sp,
-                'mausac' => $mausac,
-            );
-            if ($sp != null)
-                $view = view('layouts.modal-product', $product)->render();
-            return response()->json(['html' => $view]);
-        }
+        // if ($request->ajax()) {
+        $sp = Product::find($id);
+        $mausac = explode(",", $sp->color);
+        $product = array(
+            'prod' => $sp,
+            'mausac' => $mausac,
+        );
+        if ($sp != null)
+            $view = view('layouts.modal-product', $product)->render();
+        return response()->json(['html' => $view]);
+        // }
     }
 }
