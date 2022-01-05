@@ -16,13 +16,13 @@ class HomeController extends Controller
 
         $loaisp1 = ProductType::where("category_id", '=', 1)->get();
         $loaisp2 = ProductType::where("category_id", '=', 2)->get();
-        $listCart = CartDetails::all();
+
 
         $data = array(
             // 'listproducts' => Sanpham::all(),
             'dm1' => $loaisp1,
             'dm2' => $loaisp2,
-            'cart' => $listCart
+
             // 'listpLSP' => LoaiSP::all(),
             // 'listDM'=> DanhMuc::all()
         );

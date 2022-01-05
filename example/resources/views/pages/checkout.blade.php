@@ -37,28 +37,19 @@
                             <h3 class="title">Địa chỉ giao hàng</h3>
                         </div>
                         <div class="form-group">
-                            <input class="input" type="text" name="first-name" placeholder="Họ và tên">
+                            <input class="input" type="text" name="name" placeholder="Họ và tên" disabled value="{{Auth::user()->name}}">
                         </div>
                         <div class="form-group">
                             <div class="form-group">
-                                <input class="input" type="email" name="email" placeholder="Email">
+                                <input class="input" type="email" name="email" placeholder="Email" disabled value="{{Auth::user()->email}}">
                             </div>
                             <div class="form-group">
-                                <input class="input" type="text" name="address" placeholder="Địa chỉ">
+                                <input class="input" type="text" name="address" placeholder="Địa chỉ" disabled  value="{{Auth::user()->adress}}">
                             </div>
-                            <input class="input" type="text" name="lphuong" placeholder="Phường">
                         </div>
+                        
                         <div class="form-group">
-                            <input class="input" type="text" name="city" placeholder="Thành phố">
-                        </div>
-                        <div class="form-group">
-                            <input class="input" type="text" name="country" placeholder="Tỉnh">
-                        </div>
-                        <div class="form-group">
-                            <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-                        </div>
-                        <div class="form-group">
-                            <input class="input" type="tel" name="tel" placeholder="Điện thoại">
+                            <input class="input" type="tel" name="tel" placeholder="Điện thoại" disabled value="{{Auth::user()->tel}}">
                         </div>
                         <!-- <div class="form-group">
                             <div class="input-checkbox">
@@ -98,18 +89,6 @@
                                     <input class="input" type="text" name="address" placeholder="Địa chỉ">
                                 </div>
                                 <div class="form-group">
-                                    <input class="input" type="text" name="lphuong" placeholder="Phường">
-                                </div>
-                                <div class="form-group">
-                                    <input class="input" type="text" name="city" placeholder="Thành phố">
-                                </div>
-                                <div class="form-group">
-                                    <input class="input" type="text" name="country" placeholder="Tỉnh">
-                                </div>
-                                <div class="form-group">
-                                    <input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-                                </div>
-                                <div class="form-group">
                                     <input class="input" type="tel" name="tel" placeholder="Điện thoại">
                                 </div>
                             </div>
@@ -135,14 +114,12 @@
                             <div><strong>Tổng</strong></div>
                         </div>
                         <div class="order-products">
+                            @foreach($cart as $item)
                             <div class="order-col">
-                                <div>1x Sản phẩm 1</div>
-                                <div>30.000đ</div>
+                                <div>{{$item->quantity}} x {{$item->product->name}}</div>
+                                <div>{{number_format($item->product->promo_price * $item->quantity,0, "," , ".")}}</div>
                             </div>
-                            <div class="order-col">
-                                <div>2x sản phẩm 2</div>
-                                <div>30.000đ</div>
-                            </div>
+                            @endforeach
                         </div>
                         <div class="order-col">
                             <div>Phí ship</div>
@@ -150,7 +127,7 @@
                         </div>
                         <div class="order-col">
                             <div><strong>Thành tiền</strong></div>
-                            <div><strong class="order-total">90.000đ</strong></div>
+                            <div><strong class="order-total">{{number_format(Auth::user()->cart->total_price,0, "," , ".")}} VNĐ</strong></div>
                         </div>
                     </div>
                     <!-- <div class="payment-method">

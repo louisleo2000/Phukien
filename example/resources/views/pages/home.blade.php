@@ -1,55 +1,42 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .left-column {
+        width: 75%;
+        background: #ddd;
+        float: left
+    }
+
+    .right-column {
+        width: 25%;
+        background: #959595;
+        float: right
+    }
+</style>
 <div>
     <!-- SECTION -->
     <div class="section">
+        <div class="row">
+            <div class="left-column">
+                <img src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/SG_Banner_web_doigiomocua.png" style="width: 100%;" alt="">
+
+            </div>
+
+            <div class="row">
+                <div class="right-column">
+                    <img src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/BTS_Web.png" style="width: 100%;" alt="">
+                </div>
+                <div class="right-column">
+                    <img src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/3_Banner_Web.jpg" style="width: 100%;" alt="">
+                </div>
+            </div>
+
+
+        </div>
         <!-- container -->
         <div class="container">
             <!-- row -->
-            <div class="row">
-                <!-- shop -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="shop">
-                        <div class="shop-img">
-                            <img src="./img/shop01.jpg" alt="">
-                        </div>
-                        <div class="shop-body">
-                            <h3>Bộ sưu tập<br>Phụ kiện tóc</h3>
-                            <a href="#" class="cta-btn">Xem ngay <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /shop -->
 
-                <!-- shop -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="shop">
-                        <div class="shop-img">
-                            <img src="./img/shop03.jpg" alt="">
-                        </div>
-                        <div class="shop-body">
-                            <h3>Bộ sưu tập<br>Phụ kiện thời trang</h3>
-                            <a href="#" class="cta-btn">Xem ngay <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /shop -->
-
-                <!-- shop -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="shop">
-
-                        <div class="shop-img">
-                            <img src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/albumCT/9007/biaitb.jpg" alt="">
-                        </div>
-                        <div class="shop-body">
-                            <h3>Bộ sưu tập<br>Trang sức</h3>
-                            <a href="#" class="cta-btn">Xem ngay <i class="fa fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /shop -->
-            </div>
             <!-- /row -->
         </div>
         <!-- /container -->
@@ -417,299 +404,7 @@
     </div>
     <!-- /SECTION -->
 
-    <!-- SECTION -->
-    <div class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-4 col-xs-6">
-                    <div class="section-title">
-                        <h4 class="title">Top sản phẩm bán chạy</h4>
-                        <div class="section-nav">
-                            <div id="slick-nav-3" class="products-slick-nav"></div>
-                        </div>
-                    </div>
 
-                    <div class="products-widget-slick" data-nav="#slick-nav-3">
-                        <div>
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product07.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product08.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product09.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- product widget -->
-                        </div>
-
-                        <div>
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product01.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product02.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product03.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- product widget -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-xs-6">
-                    <div class="section-title">
-                        <h4 class="title">Top sản phẩm bán chạy</h4>
-                        <div class="section-nav">
-                            <div id="slick-nav-4" class="products-slick-nav"></div>
-                        </div>
-                    </div>
-
-                    <div class="products-widget-slick" data-nav="#slick-nav-4">
-                        <div>
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product04.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product05.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product06.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- product widget -->
-                        </div>
-
-                        <div>
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product07.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product08.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product09.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- product widget -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="clearfix visible-sm visible-xs"></div>
-
-                <div class="col-md-4 col-xs-6">
-                    <div class="section-title">
-                        <h4 class="title">Top sản phẩm bán chạy</h4>
-                        <div class="section-nav">
-                            <div id="slick-nav-5" class="products-slick-nav"></div>
-                        </div>
-                    </div>
-
-                    <div class="products-widget-slick" data-nav="#slick-nav-5">
-                        <div>
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product01.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product02.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product03.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- product widget -->
-                        </div>
-
-                        <div>
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product04.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product05.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- /product widget -->
-
-                            <!-- product widget -->
-                            <div class="product-widget">
-                                <div class="product-img">
-                                    <img src="./img/product06.jfif" alt="">
-                                </div>
-                                <div class="product-body">
-                                    <p class="product-category">Loại sản phẩm nè</p>
-                                    <h3 class="product-name"><a href="#">tên sản phẩm nè</a></h3>
-                                    <h4 class="product-price">30.000đ <del class="product-old-price">45.000đ</del></h4>
-                                </div>
-                            </div>
-                            <!-- product widget -->
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- /row -->
-        </div>
-        <!-- /container -->
-    </div>
-    <!-- /SECTION -->
 </div>
 <!-- The Modal -->
 <div id="myModal" class="modal">

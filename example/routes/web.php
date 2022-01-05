@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\CartDetailsController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Database\Factories\ProductFactory;
@@ -25,9 +26,7 @@ Route::get('/detail/{id}', [HomeController::class, 'details'])->name('home.detai
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-Route::get('/checkout', function () {
-    return view('pages.checkout');
-})->middleware(['auth'])->name('checkout');
+Route::get('/checkout', [CheckOutController::class,'index'])->middleware(['auth'])->name('checkout');
 
 Route::get('/cart', [CartDetailsController::class, 'index'])->middleware(['auth'])->name('cart');
 Route::post('/cart/{id}', [CartDetailsController::class, 'add'])->middleware(['auth'])->name('cart.add');

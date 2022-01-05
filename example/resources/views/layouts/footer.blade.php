@@ -45,6 +45,18 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="col-md-3 ">
+                        <div class="footer">
+                       
+                            <h5 class="footer-title">Hãy kết nối với chúng mình </h5>
+                            <div class="row " style="margin-left:5px;font-size: 50px;">
+                                <a  href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a  href="#"><i class="fab fa-instagram"></i></a>
+                                <a  href="#"><i class="fab fa-twitter-square"></i></a>
+                                <a  href="#"><i class="fab fa-youtube-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- <div class="col-md-3 col-xs-6">
                         <div class="footer">

@@ -24,7 +24,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
     <!-- Bootstrap -->
+    
     <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" />
+    
 
     <!-- Slick -->
     <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/slick.css') }}" />

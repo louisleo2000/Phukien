@@ -23,6 +23,30 @@ tgtao datetime,
 tgcapnhat datetime,
 PRIMARY KEY(masp,maloaisp)
 );
+
+
+CREATE TABLE Loaisp(
+maloaisp char(8) not null,
+tenLsp nvarchar(250) not null,
+motaLsp varchar(450),
+hinhanhLSP varchar(250), 
+tgtao datetime,
+tgcapnhat datetime,
+PRIMARY KEY(maloaisp)
+);
+
+
+INSERT INTO categories(name,created_at,updated_at) VALUES
+('Phụ kiện tóc', NOW(),NOW()),
+('Phụ kiện trang sức',NOW(),NOW());
+
+INSERT INTO product_types(category_id, name, descrip, img,created_at,updated_at) VALUES
+(1,'Scrunchies', 'Scrunchie là một loại dây chun buộc tóc được bọc vải bên ngoài, thường có kích cỡ lớn và phồng lên như một bông hoa','https://storage.googleapis.com/ops-shopee-files-live/live/shopee-blog/2020/05/cach-lam-day-buoc-toc-scrunchies-2.jpg' , NOW(),NOW()),
+(1,'Kẹp tóc','Kẹp tóc thời trang với thiết kế đẹp, mẫu mới, đa dạng, chất lượng cao cấp. Nhiều mẫu kẹp búi tóc công sở, kẹp tóc càng cua, kẹp tóc mái, kẹp bấm, kẹp dọc, ..','https://cf.shopee.vn/file/fa418f6fad4ad32d570b646dd65935ae', NOW(),NOW()),
+(1,'Băng đô', 'Băng đô là một phụ kiện thời trang, cụ thể hơn là phụ kiện tóc, đeo ở tóc hoặc quanh trán, thường để giữ tóc cách xa mặt hoặc mắt','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20211112/21112046_WH.JPG' ,NOW(),NOW()),
+(2,'Vòng tay', 'Vòng đeo tay là một loại trang sức đeo ở cổ tay. Vòng đeo tay có thể được làm từ rất nhiều loại chất liệu khác nhau dành cho cả nam và nữ được sử dụng từ lâu trong lịch sử. Đây là một loại trang sức được cấu tạo cơ bản bằng một chuỗi hay một dãi đeo quanh cổ tay để làm đẹp.', 'https://eropi.com/media/wysiwyg/tin-tuc-4/vong-tay-va-lac-tay-co-khac-nhau-khong_8_.jpg', NOW(),NOW()),
+(2,'Đồng hồ', 'Phái đẹp ngày càng có xu hướng lựa chọn phụ kiện là đồng hồ, bởi đây là món phụ kiện không hề kén trang phục, và hầu như phù hợp với mọi hoàn cảnh. Chỉ với một chiếc đồng hồ đeo tay cũng đã đủ tạo điểm nhấn tinh tế cho phong cách thời trang và vẻ ngoài thanh lịch cho bất cứ chị em nào. ', 'https://cf.shopee.vn/file/d4756a4f3b30114409279bc4e2a3588e', NOW(),NOW());
+
 INSERT INTO products(product_type_id,name,descrip,img,unit, color,rating, unit_price, promo_price,created_at,updated_at) VALUES 
 ('1',N'Buộc tóc scrunchies Fruit strawberries sweet', N'Dây cột tóc cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/psCT/20210531/32208378/Buoc_toc_scrunchies_Fruit_strawberries_sweet_(21052240_hoc).jpg', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now()),
 ('1', N'Buộc tóc scrunchies trái tim', N'Dây cột tóc hình trái tim cute cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/psCT/20210422/31075025/Buoc_toc_MJ_scrunchies_Fruit_dau_tay_sweet_summer_(21041180_xx).jpg', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now()),
@@ -48,29 +72,8 @@ INSERT INTO products(product_type_id,name,descrip,img,unit, color,rating, unit_p
 ('5',N'Đồng hồ MJ dây silicone Mira little girl ', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210218/21010254_XX_1000x1000.JPG', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now()),
 ('5',N'Đồng hồ MJ dây vải mặt tròn white basic', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210325/21022025_be4_1000x1000.jpg', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now()),
 ('5',N'Đồng hồ MJ dây vải sọc Doukou watch', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210325/21012282_BL4_1000x1000.jpg', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now()),
-('5',N'Đồng hồ MJ Shhors Sport mặt tròn ', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210228/21012276_1000x1000.JPG', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now())
+('5',N'Đồng hồ MJ Shhors Sport mặt tròn ', N'Đồng hồ đeo tay cho nữ','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20210228/21012276_1000x1000.JPG', N'cái','Hồng,Xanh,Đen',4.5,'15000','12000',Now(),Now());
 
-
-CREATE TABLE Loaisp(
-maloaisp char(8) not null,
-tenLsp nvarchar(250) not null,
-motaLsp varchar(450),
-hinhanhLSP varchar(250), 
-tgtao datetime,
-tgcapnhat datetime,
-PRIMARY KEY(maloaisp)
-);
-
-INSERT INTO product_types(category_id, name, descrip, img,created_at,updated_at) VALUES
-(1,'Scrunchies', 'Scrunchie là một loại dây chun buộc tóc được bọc vải bên ngoài, thường có kích cỡ lớn và phồng lên như một bông hoa','https://storage.googleapis.com/ops-shopee-files-live/live/shopee-blog/2020/05/cach-lam-day-buoc-toc-scrunchies-2.jpg' , NOW(),NOW()),
-(1,'Kẹp tóc','Kẹp tóc thời trang với thiết kế đẹp, mẫu mới, đa dạng, chất lượng cao cấp. Nhiều mẫu kẹp búi tóc công sở, kẹp tóc càng cua, kẹp tóc mái, kẹp bấm, kẹp dọc, ..','https://cf.shopee.vn/file/fa418f6fad4ad32d570b646dd65935ae', NOW(),NOW()),
-(1,'Băng đô', 'Băng đô là một phụ kiện thời trang, cụ thể hơn là phụ kiện tóc, đeo ở tóc hoặc quanh trán, thường để giữ tóc cách xa mặt hoặc mắt','https://storage.googleapis.com/cdn.nhanh.vn/store/7534/ps/20211112/21112046_WH.JPG' ,NOW(),NOW()),
-(2,'Vòng tay', 'Vòng đeo tay là một loại trang sức đeo ở cổ tay. Vòng đeo tay có thể được làm từ rất nhiều loại chất liệu khác nhau dành cho cả nam và nữ được sử dụng từ lâu trong lịch sử. Đây là một loại trang sức được cấu tạo cơ bản bằng một chuỗi hay một dãi đeo quanh cổ tay để làm đẹp.', 'https://eropi.com/media/wysiwyg/tin-tuc-4/vong-tay-va-lac-tay-co-khac-nhau-khong_8_.jpg', NOW(),NOW()),
-(2,'Đồng hồ', 'Phái đẹp ngày càng có xu hướng lựa chọn phụ kiện là đồng hồ, bởi đây là món phụ kiện không hề kén trang phục, và hầu như phù hợp với mọi hoàn cảnh. Chỉ với một chiếc đồng hồ đeo tay cũng đã đủ tạo điểm nhấn tinh tế cho phong cách thời trang và vẻ ngoài thanh lịch cho bất cứ chị em nào. ', 'https://cf.shopee.vn/file/d4756a4f3b30114409279bc4e2a3588e', NOW(),NOW())
-
-INSERT INTO categories(name,created_at,updated_at) VALUES
-('Phụ kiện tóc', NOW(),NOW()),
-('Phụ kiện trang sức',NOW(),NOW())
 
 CREATE TABLE Hoadon(
 maHD char(8) not null,
