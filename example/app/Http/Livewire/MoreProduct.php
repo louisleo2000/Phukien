@@ -7,8 +7,6 @@ use App\Models\Product;
 use App\Models\ProductType;
 use Livewire\Component;
 
-use function PHPSTORM_META\type;
-
 class MoreProduct extends Component
 {
     public $perPage = 6;

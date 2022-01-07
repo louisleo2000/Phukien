@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 
 class Header extends Component
