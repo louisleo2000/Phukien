@@ -47,29 +47,18 @@
                     </div>
                     <div class="col-md-3 ">
                         <div class="footer">
-                       
+
                             <h5 class="footer-title">Hãy kết nối với chúng mình </h5>
                             <div class="row " style="margin-left:5px;font-size: 50px;">
-                                <a  href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a  href="#"><i class="fab fa-instagram"></i></a>
-                                <a  href="#"><i class="fab fa-twitter-square"></i></a>
-                                <a  href="#"><i class="fab fa-youtube-square"></i></a>
+                                <a style="margin-left:10px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a style="margin-left:10px;" href="#"><i class="fab fa-instagram"></i></a>
+                                <a style="margin-left:10px;" href="#"><i class="fab fa-twitter-square"></i></a>
+                                <a style="margin-left:10px;" href="#"><i class="fab fa-youtube-square"></i></a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Service</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">View Cart</a></li>
-                                <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">Track My Order</a></li>
-                                <li><a href="#">Help</a></li>
-                            </ul>
-                        </div>
-                    </div> -->
+
                 </div>
                 <!-- /row -->
             </div>

@@ -6,7 +6,7 @@
             <!-- row -->
             <div class="row">
                 <!-- LOGO -->
-                <div class="col-sm-3">
+                <div class="col-3">
                     <div class="header-logo">
                         <a href="/" class="logo">
                             <img src="{{ URL::asset('./img/logo.png') }}" alt="" style="width: 75%;">
@@ -16,10 +16,10 @@
                 <!-- /LOGO -->
 
                 <!-- SEARCH BAR -->
-                <div class="col-sm-6">
+                <div class="col-6">
                     <div class="header-search">
                         <input wire:model="search" wire:change="search" class="input" style="border-top-left-radius:20px;border-bottom-left-radius:20px; width: 90%;" placeholder="Tìm kiếm">
-                        <button wire:click="search" class="search-btn" style=" width: 10%;"><i class="fas fa-search"></i></button>
+                        <button wire:click="search" class="search-btn" style=" width: 8%;"><i class="fas fa-search"></i></button>
 
                     </div>
                 </div>
@@ -27,16 +27,13 @@
 
                 <!-- ACCOUNT -->
                 <div class="col-sm-3 clearfix">
-                    <div class="header-ctn">
-                        <!-- Wishlist -->
+
+                    <div class="header-ctn row" style="margin-top: 15px;">
                         <div>
                             @if(Auth::user() != null)
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" style="background-color: #FFB0BD;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div style="margin-left: 5px; color: maroon; ">
-                                        <i class="fas fa-user-circle " style="margin-right: 5px;font-size: 20px;margin-left: -10px;"></i>{{ Auth::user()->name}}
-                                        <i class="fas fa-chevron-down " style="font-size: 11px;"></i>
-                                    </div>
+                                <button class="btn btn-secondary dropdown-toggle" style="background-color:#F28394 ;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-user-circle " style="margin-right: 5px;font-size: 20px;"></i>{{ Auth::user()->name}}
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <form method="POST" action="{{ route('logout') }}">
@@ -61,25 +58,21 @@
                             </a>
 
                             @endif
-                            <!-- <a href="#">
 
-                             <i class="far fa-heart"></i>
-                             <span style="color: black;">Yêu thích</span>
-                             <div class="qty">2</div>
-                         </a> -->
                         </div>
-                        <!-- /Wishlist -->
 
                         <!-- Cart -->
+
                         <div class="dropdown" style="margin-left: -20px;">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                                <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>
+                            <a class="dropdown-toggle" id="dropdownCart" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-shopping-cart" style="font-size: 25px; "></i>
                                 @if(Auth::user() != null)
                                 <div class="qty">{{Auth::user()->cart->total_quantity}}</div>
                                 @endif
                             </a>
+
                             @if(Auth::user() != null)
-                            <div class="cart-dropdown">
+                            <div class="cart-dropdown dropdown-menu" aria-labelledby="dropdownCart">
                                 <div class="cart-list">
                                     @foreach(Auth::user()->cart->cartdetails as $cartItem)
                                     <div class="product-widget">
@@ -99,24 +92,18 @@
                                     <small>{{count(Auth::user()->cart->cartdetails)}} sản phẩm đã được chọn</small>
                                     <h5>Tổng: {{$price}}đ </h5>
                                 </div>
-                                <div class="cart-btns">
+                                <div class="cart-btns row">
                                     <a href="{{route('cart')}}">Xem giỏ hàng</a>
                                     <a href="/checkout">Thanh toán <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                             @endif
-                        </div>
-                        <!-- /Cart -->
 
-                        <!-- Menu Toogle -->
-                        <div class="menu-toggle">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
                         </div>
-                        <!-- /Menu Toogle -->
+
                     </div>
+                    <!-- /Cart -->
+
                 </div>
                 <!-- /ACCOUNT -->
             </div>

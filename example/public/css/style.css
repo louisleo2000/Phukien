@@ -531,7 +531,7 @@ textarea.input {
 
 .header-ctn {
     float: right;
-    padding: 15px 0px;
+    /* padding: 15px 0px; */
 }
 
 .header-ctn > div {
@@ -1079,18 +1079,18 @@ textarea.input {
     padding: 15px;
     background: rgba(255, 255, 255, 0);
     text-align: center;
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
+    -webkit-transform: translateY(70%);
+    -ms-transform: translateY(70%);
+    transform: translateY(70%);
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
     z-index: 2;
 }
 
 .product:hover .add-to-cart {
-    -webkit-transform: translateY(100%);
-    -ms-transform: translateY(100%);
-    transform: translateY(100%);
+    -webkit-transform: translateY(80%);
+    -ms-transform: translateY(80%);
+    transform: translateY(80%);
 }
 
 .product .add-to-cart .add-to-cart-btn {
@@ -1229,8 +1229,6 @@ textarea.input {
     opacity: 0;
     visibility: hidden;
     overflow-y: hidden;
-    padding-bottom: 60px;
-    margin-bottom: -60px;
 }
 
 .products-tabs > .tab-pane.active {

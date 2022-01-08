@@ -49,17 +49,19 @@
         </table>
     </div>
     <div class="sticky-bottom" id="stick">
-        <div class="modal-content row" style="width: 100%; padding: 20px;">
-            <div class="col-md-6">
-                <p style="font-weight: bold; font-size: 20px;">Đã chọn {{$list[0]->cart->total_quantity}} sản phẩm</p>
-            </div>
-            <div class="col-md-4">
-                <div class="">
-                    <p style="font-weight: bold; font-size: 20px;">Tổng thanh toán: <span id="toltal">{{number_format($list[0]->cart->total_price,0,",",".")}}</span>VNĐ</p>
+        <div class="modal-content" style="width: 100%; padding: 20px;">
+            <div class="row">
+                <div class="col-6">
+                    <p style="font-weight: bold; font-size: 20px;">Đã chọn {{$list[0]->cart->total_quantity}} sản phẩm</p>
                 </div>
+                <div class="col-4">
+                    <div>
+                        <p style="font-weight: bold; font-size: 20px;">Tổng thanh toán: <span id="toltal">{{number_format($list[0]->cart->total_price,0,",",".")}}</span>VNĐ</p>
+                    </div>
 
-                <div>
-                    <a href="{{route('checkout')}}" class="primary-btn" style="font-weight: bold; font-size: 20px;">Mua hàng</a>
+                    <div>
+                        <a href="{{route('checkout')}}" class="primary-btn" style="font-weight: bold; font-size: 20px;">Mua hàng</a>
+                    </div>
                 </div>
             </div>
         </div>

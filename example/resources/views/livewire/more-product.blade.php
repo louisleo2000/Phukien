@@ -171,15 +171,12 @@
                                         <div class="product-rating">
                                             {{ratingStar($item->rating)}}
                                         </div>
-                                        <div class="product-btns">
-                                            <button class="add-to-wishlist"><i class="far fa-heart"></i><span class="tooltipp">Yêu thích</span></button>
 
-                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
+                                        <div class="add-to-cart">
+                                            <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
                                         </div>
                                     </div>
-                                    <div class="add-to-cart">
-                                        <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
-                                    </div>
+                                    <br><br>
                                 </div>
                             </div>
                         </a>

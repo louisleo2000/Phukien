@@ -24,9 +24,9 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
     <!-- Bootstrap -->
-    
-    <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" />
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}" /> -->
+
 
     <!-- Slick -->
     <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/slick.css') }}" />
@@ -41,6 +41,11 @@
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="{{ URL::asset('css/style.css') }}" />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
     @livewireStyles
 </head>

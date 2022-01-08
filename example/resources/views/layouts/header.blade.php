@@ -35,7 +35,7 @@
                              <button class="btn btn-secondary dropdown-toggle" style="background-color: #FFB0BD;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                  <div style="margin-left: 5px; color: maroon; ">
                                      <i class="fas fa-user-circle " style="margin-right: 5px;font-size: 20px;margin-left: -10px;"></i>{{ Auth::user()->name}}
-                                     <i class="fas fa-chevron-down " style="font-size: 11px;"></i>
+
                                  </div>
                              </button>
                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
