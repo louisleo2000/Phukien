@@ -5,6 +5,7 @@
 
     <div class="row p-0" style="max-width: 100%;">
         <div class="col-9 p-0">
+            
             <div id="carouselExampleIndicators" data-interval="3000" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -376,10 +377,5 @@
     @include('layouts.modal-product')
 </div>
 
-<script>
-    $('#carouselExampleIndicators').carousel({
-        interval: 3000,
-        cycle: true
-    });
-</script>
+
 @endsection
