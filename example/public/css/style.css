@@ -579,16 +579,13 @@ textarea.input {
 }
 
 .cart-dropdown {
-    position: absolute;
+
     width: 300px;
     background: #fff;
     padding: 15px;
     -webkit-box-shadow: 0px 0px 0px 2px #e4e7ed;
     box-shadow: 0px 0px 0px 2px #e4e7ed;
-    z-index: 99;
-    right: 0;
-    opacity: 0;
-    visibility: hidden;
+
 }
 
 .dropdown.open > .cart-dropdown {

@@ -5,7 +5,7 @@
 
     <div class="row p-0" style="max-width: 100%;">
         <div class="col-9 p-0">
-            
+
             <div id="carouselExampleIndicators" data-interval="3000" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -55,7 +55,7 @@
             <div class="section-nav">
                 <ul class="section-tab-nav tab-nav">
                     <li class="active"><a data-toggle="tab" href="#tab1">Phụ kiện tóc</a></li>
-                    <li><a data-toggle="tab" href="##tab2">Phụ kiện trang sức</a></li>
+                    <li><a data-toggle="tab" href="#tab2">Phụ kiện trang sức</a></li>
                     <!-- <li><a data-toggle="tab" href="#tab3">Trang sức</a></li> -->
 
                 </ul>
@@ -135,16 +135,18 @@
                                     </h4>
                                     <div class="product-rating">
                                         {{ratingStar($item->rating)}}
-                                    </div>
-                                    <!-- <div class="product-btns">
-                                                    <button class="add-to-wishlist"><i class="far fa-heart"></i><span class="tooltipp"> Yêu thích</span></button>
 
-                                                    <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem trước</span></button>
-                                                </div> -->
+                                    </div>
+                                    <div>
+                                        <div class="add-to-cart">
+                                            <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
+                                        </div>
+                                    </div>
+
+
                                 </div>
-                                <div class="add-to-cart">
-                                    <button onclick="viewDetails(<?php echo ($item->id) ?>)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
-                                </div>
+                                <br><br>
+
                             </a>
                         </div>
                         <!-- /product -->

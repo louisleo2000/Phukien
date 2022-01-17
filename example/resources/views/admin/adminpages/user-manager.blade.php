@@ -1,5 +1,6 @@
 @extends('admin.layouts.dashboard')
 @section('admin_content')
+
 <div class="container-fluid py-4">
     <div class="row my-4">
         <div class="col-lg-11 col-md-6 mb-md-0 mb-4">
@@ -26,14 +27,14 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="admin-product/add" method="post" id="myform">
+                    <form action="user-manager/add" method="post" id="myform">
                         @csrf
                         <div class="mb-3">
-                            <label for="">Tên sản phẩm</label>
-                            <input type="text" class="form-control " name="name" id="name" placeholder="Tên sản phẩm" :value="old('name')" required autofocus>
+                            <label for="">Họ và tên</label>
+                            <input type="text" class="form-control " name="name" id="name" placeholder="Họ và tên người dùng" :value="old('name')" required autofocus>
                         </div>
 
-                        <div class="mb-3 file-upload-wrapper">
+                        {{-- <div class="mb-3 file-upload-wrapper">
                             <label for="">Hình ảnh</label>
 
                             <div class="row">
@@ -51,57 +52,38 @@
                                     <input name="img" type="file" class="form-control-file text-success font-weight-bold" id="inputFile" accept="image/*" onchange="readUrl(this)" data-title="Kéo và thả ảnh ở đây" require>
                                 </div>
                             </div> -->
+                        </div> --}}
+                        <div class="mb-3">
+                            <label for="">Email</label>
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Nhập email" :value="old('email')" required>
                         </div>
                         <div class="mb-3">
-                            <label for="">Loại sản phẩm</label>
-                            @if(isset($listLsp))
-                            @if($listLsp->count() !=0)
-                            <select class="form-control" name="product_type_id" id="product_type_id" :value="old('product_type_id')" required>
-                                @foreach ($listLsp as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
-                            <a class="font-weight-bold" style="margin-left: 10px; text-decoration: underline;" href="{{route('admin-product-type')}}"> Thêm loại sản phẩm </a>
-                            @else
-                            <p>Bạn cần thêm loại sẩn phẩm <a href="{{route('admin-product-type')}}">tại đây!</a></p>
-                            @endif
-                            @else
-                            <p>Bạn cần thêm loại sẩn phẩm <a href="{{route('admin-product-type')}}">tại đây!</a></p>
-                            @endif
+                            <label for="">Số điện thoại</label>
+                            <input type="text" class="form-control" name="tel" id="tel" placeholder="Nhập sđt" :value="old('tel')" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Địa chỉ</label>
+                            <input type="text" class="form-control" name="adress" id="adress" placeholder="Nhập địa chỉ (ghi rõ phường/xã,tỉnh/thành phố)" :value="old('tel')" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Vai trò</label>
+                            <select class="form-control" name="role" id="role" :value="old('role')" required>
+                                <option value="user">Người dùng</option>
+                                <option value="admin">Admin</option>
 
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Đơn vị tính</label>
-                            <select class="form-control" name="unit" id="unit" :value="old('unit')" required>
-                                <option value="cái">Cái</option>
-                                <option value="hộp">Hộp</option>
-                                <option value="bộ">Bộ</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="">Màu sắc</label>
-                            <input type="text" class="form-control" name="color" id="color" placeholder="Nhập nhiều màu cách nhau bởi dấu phẩy" :value="old('color')" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Mô tả</label>
-                            <textarea id="my-editor" class="form-control" name="descrip" placeholder="Nhập mô tả" cols="30" rows="5" :value="old('descrip')" required></textarea>
-                        </div>
+                        {{-- <div class="col text-end" id="btnAdd">
+                            <button class="btn bg-gradient-info mb-0" ><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm </button>
+                        </div> --}}
 
-                        <div class="mb-3">
-                            <label for="">Đơn giá</label>
-                            <input type="number" class="form-control" name="unit_price" id="unit_price" placeholder="Đơn giá" min="1" :value="old('unit_price')" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="">Giá khuyển mãi</label>
-                            <input type="number" class="form-control" name="promo_price" id="promo_price" placeholder="Giá khuyến mãi" min="1" :value="old('promo_price')" required>
-                        </div>
                     </form>
                     <div class="col text-end" id="btnAdd">
-                        <button class="btn bg-gradient-info mb-0" onclick="save('/admin-product/add',1)"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm sản phẩm</button>
+                        <button class="btn bg-gradient-info mb-0" onclick="save('/user-manager/add',1)"><i class="fas fa-plus"></i>&nbsp;&nbsp;Thêm </button>
                     </div>
                     <div class="col text-end" id="btnEdit" style="display: none; ">
                         <button class="btn bg-gradient-secondary mb-0" onclick="cancel()">Hủy</button>
-                        <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-product/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
+                        <button class="btn bg-gradient-warning mb-0" onclick="save('/edit-user/')"><i class="fas fa-save    "></i>&nbsp;&nbsp;Lưu lại</button>
                     </div>
 
 
@@ -118,22 +100,20 @@
     <div class="col-11">
         <div class="card mb-4 p-2">
             <div class="card-header pb-0">
-                <h4>Sản phẩm</h4>
+                <h4>Người dùng</h4>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive ">
-
+            <div class="card-body px-0 pt-0 pb-2 ">
+                <div class="table-responsive">
                     <table class=" table table-striped  table-bordered yajra-datatable">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th></th>
-                                <th>Tên sản phẩm</th>
-                                <th>Loại</th>
-                                <th>ĐVT</th>
-                                <th>Màu sắc</th>
-                                <th>Đơn giá</th>
-                                <th>Giá KM</th>
+                                <th>Họ và tên</th>
+                                <th>Email</th>
+                                <th>Số Điện thoại</th>
+                                <th>Địa chỉ</th>
+
+                                <th>Vai trò</th>
                                 <th>Ngày tạo</th>
                                 <th>Ngày cập nhật</th>
                                 <th></th>
@@ -145,10 +125,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-8"></div>
-            <div class="col-3 ">{{$listProducts->links('layouts.paginate')}}</div>
-        </div> -->
 
     </div>
 
@@ -157,7 +133,7 @@
     var table = $('.yajra-datatable').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('admin-product.list') }}",
+        ajax: "{{ route('user-manager.list') }}",
         language: {
                 "decimal": "",
                 "emptyTable": "Không có dữ liệu phù hợp",
@@ -187,34 +163,28 @@
                 name: 'id'
             },
 
-            {
-                data: 'img',
-                name: 'img'
-            },
+
             {
                 data: 'name',
                 name: 'name'
             },
             {
-                data: 'type',
-                name: 'type'
+                data: 'email',
+                name: 'email'
             },
             {
-                data: 'unit',
-                name: 'unit'
+                data: 'tel',
+                name: 'tel'
             },
             {
-                data: 'color',
-                name: 'color'
+                data: 'adress',
+                name: 'adress'
             },
 
+
             {
-                data: 'unit_price',
-                name: 'unit_price'
-            },
-            {
-                data: 'promo_price',
-                name: 'promo_price'
+                data: 'role',
+                name: 'role'
             },
             {
                 data: 'created_at',

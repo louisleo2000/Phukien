@@ -69,6 +69,7 @@
                                 @if(Auth::user() != null)
                                 <div class="qty">{{Auth::user()->cart->total_quantity}}</div>
                                 @endif
+
                             </a>
 
                             @if(Auth::user() != null)

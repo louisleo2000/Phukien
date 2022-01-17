@@ -187,6 +187,7 @@
             url = window.location.origin + href + id;
 
         }
+        console.log(url);
         $.ajax({
                 url: url,
                 type: "post",
@@ -217,6 +218,10 @@
         let my_editor = document.getElementById("my-editor");
         let btnEdit = document.getElementById("btnEdit");
         let btnAdd = document.getElementById("btnAdd");
+        let adress = document.getElementById("adress");
+        let tel = document.getElementById("tel");
+        let email = document.getElementById("email");
+        let role = document.getElementById("role");
         $.ajax({
                 url: url,
                 type: "get",
@@ -239,8 +244,20 @@
                 if (unit_price != null) {
                     unit_price.value = response.data.unit_price;
                 }
+                if (adress != null) {
+                    adress.value = response.data.adress;
+                }
+                if (email != null) {
+                    email.value = response.data.email;
+                }
+                if (tel != null) {
+                    tel.value = response.data.tel;
+                }
                 if (unit != null) {
                     unit.value = response.data.unit.toLowerCase();
+                }
+                if (role != null) {
+                    role.value = response.data.role.toLowerCase();
                 }
                 if (promo_price != null) {
                     promo_price.value = response.data.promo_price;

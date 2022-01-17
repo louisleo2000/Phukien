@@ -72,10 +72,10 @@
                      @if(Auth::user() != null)
                      <!-- Cart -->
                      <div class="dropdown" style="margin-left: -20px;">
-                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="color: black">
+                            Giỏ hàng
                              <i class="fa fa-shopping-cart" style="font-size: 25px;"></i>
 
-                             <div class="qty">{{Auth::user()->cart->total_quantity}}</div>
 
                          </a>
 

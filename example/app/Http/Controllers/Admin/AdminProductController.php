@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
-use DataTables;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminProductController extends Controller
 {
@@ -28,7 +27,7 @@ class AdminProductController extends Controller
             $data = Product::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->editColumn('img', '<img src="{{$img}}" class="avatar avatar-sm me-3" alt="user1">')
+                ->editColumn('img', '<img src="{{$img}}" class="avatar" alt="user1">')
                 ->editColumn('unit_price', function ($sp) {
 
                     return number_format($sp->unit_price, 0, ",", ".");

@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use DataTables;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminCategoryController extends Controller
 {

@@ -6,8 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
-use DataTables;
-use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
+use Yajra\DataTables\Facades\DataTables;
 
 class AdminProductTypeController extends Controller
 {
@@ -29,7 +28,7 @@ class AdminProductTypeController extends Controller
             $data = ProductType::latest()->get();
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->editColumn('img', '<img src="{{$img}}" class="avatar avatar-sm me-3" alt="user1">')
+                ->editColumn('img', '<img src="{{$img}}" class="avatar " alt="user1">')
                 ->editColumn('created_at', function ($sp) {
 
                     return $sp->created_at->diffForHumans();
