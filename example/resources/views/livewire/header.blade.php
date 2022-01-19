@@ -75,7 +75,7 @@
                             @if(Auth::user() != null)
                             <div class="cart-dropdown dropdown-menu" aria-labelledby="dropdownCart">
                                 <div class="cart-list">
-                                    @foreach(Auth::user()->cart->cartdetails as $cartItem)
+                                    @foreach($carts as $cartItem)
                                     <div class="product-widget">
                                         <div class="product-img">
                                             <img src="{{$cartItem->product->img}}" alt="">
@@ -90,7 +90,7 @@
 
                                 </div>
                                 <div class="cart-summary">
-                                    <small>{{count(Auth::user()->cart->cartdetails)}} sản phẩm đã được chọn</small>
+                                    <small>{{count($carts)}} sản phẩm đã được chọn</small>
                                     <h5>Tổng: {{$price}}đ </h5>
                                 </div>
                                 <div class="cart-btns row">

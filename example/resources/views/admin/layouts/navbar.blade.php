@@ -26,7 +26,7 @@
                 <!-- <li class="nav-item d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body px-0">
                                 <i class="fa fa-user me-sm-1"></i>
-                            
+
                             </a>
                         </li> -->
                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
@@ -36,7 +36,7 @@
                     </a>
                     <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
                         <li class="mb-2">
-                            <a class="dropdown-item border-radius-md" href="javascript:;">
+                            <a class="dropdown-item border-radius-md" href="{{route('profile')}}">
                                 <div class="d-flex py-1">
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">

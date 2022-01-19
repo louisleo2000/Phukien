@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('admin.adminpages.admin-statistical');
 })->middleware(['auth', 'admin'])->name('dashboard');
+Route::get('/profile', function () {
+    return view('admin.adminpages.profile');
+})->middleware(['auth', 'admin'])->name('profile');
 //ADMIN PRODUCTS
 Route::get('/admin-product', [AdminProductController::class, 'view'])->middleware(['auth', 'admin'])->name('admin-product');
 Route::get('admin-product/list', [AdminProductController::class, 'get'])->name('admin-product.list');
