@@ -13,8 +13,10 @@ class Header extends Component
     public $search = "";
     public function render()
     {
+        $carts =null;
         if (Auth::user() != null) {
             $this->price = number_format(Auth::user()->cart->total_price, 0, ",",  ".");
+            
             $carts =  CartDetails::where('cart_id','=',Auth::user()->cart->id)->orderBy('created_at', 'desc')->get();
         }
         return view('livewire.header',['carts'=>$carts]);
