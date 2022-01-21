@@ -5,7 +5,6 @@
 
     <div class="row p-0" style="max-width: 100%;">
         <div class="col-9 p-0">
-
             <div id="carouselExampleIndicators" data-interval="3000" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -33,9 +32,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
         </div>
-
         <div class="col-3 p-0">
             <div>
                 <img src="https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/BTS_Web.png" style="width: 98%; margin-left: 22px; " alt="">
@@ -56,6 +53,7 @@
                 <ul class="section-tab-nav tab-nav">
                     <li class="active"><a data-toggle="tab" href="#tab1">Phụ kiện tóc</a></li>
                     <li><a data-toggle="tab" href="#tab2">Phụ kiện trang sức</a></li>
+                    
                     <!-- <li><a data-toggle="tab" href="#tab3">Trang sức</a></li> -->
 
                 </ul>

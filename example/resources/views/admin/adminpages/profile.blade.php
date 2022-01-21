@@ -113,7 +113,7 @@
     </div>
     <div class="container-fluid py-4">
         <div class="row">
-            <div class="col-12 col-xl-4">
+            <!-- <div class="col-12 col-xl-4">
                 <div class="card h-100">
                     <div class="card-header pb-0 p-3">
                         <h6 class="mb-0">Platform Settings</h6>
@@ -172,13 +172,13 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col-12 col-xl-4">
                 <div class="card h-100">
                     <div class="card-header pb-0 p-3">
                         <div class="row">
                             <div class="col-md-8 d-flex align-items-center">
-                                <h6 class="mb-0">Profile Information</h6>
+                                <h6 class="mb-0">Thông tin người dùng</h6>
                             </div>
                             <div class="col-md-4 text-end">
                                 <a href="javascript:;">
@@ -190,22 +190,20 @@
                     </div>
                     <div class="card-body p-3">
                         <p class="text-sm">
-                            Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally
-                            difficult paths, choose the one more painful in the short term (pain avoidance is creating
-                            an illusion of equality).
+                        Xin chào, tôi là {{Auth::user()->name}}, Quyết định: Nếu bạn không thể quyết định, câu trả lời là không. Nếu hai con đường khó khăn như nhau, hãy chọn con đường đau đớn hơn trong ngắn hạn (tránh đau đớn đang tạo ra ảo tưởng về sự bình đẳng).
                         </p>
                         <hr class="horizontal gray-light my-4">
                         <ul class="list-group">
-                            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full
-                                    Name:</strong> &nbsp; Alec M. Thompson</li>
+                            <li class="list-group-item border-0 ps-0 pt-0 text-sm">
+                                <strong class="text-dark">Họ tên:</strong> &nbsp; {{Auth::user()->name}}</li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                    class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
+                                    class="text-dark">Di động:</strong> &nbsp; {{Auth::user()->tel}}</li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong>
-                                &nbsp; alecthompson@mail.com</li>
+                                &nbsp; {{Auth::user()->email}}</li>
                             <li class="list-group-item border-0 ps-0 text-sm"><strong
-                                    class="text-dark">Location:</strong> &nbsp; USA</li>
+                                    class="text-dark">Quốc gia:</strong> &nbsp; VN</li>
                             <li class="list-group-item border-0 ps-0 pb-0">
-                                <strong class="text-dark text-sm">Social:</strong> &nbsp;
+                                <strong class="text-dark text-sm">Mạng xã hội:</strong> &nbsp;
                                 <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
                                     <i class="fab fa-facebook fa-lg"></i>
                                 </a>

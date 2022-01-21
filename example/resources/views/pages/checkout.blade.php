@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+@if(Auth::user()->cart->total_quantity>0)
 <div>
-
     <!-- BREADCRUMB -->
     <div id="breadcrumb" class="section">
         <!-- container -->
@@ -44,10 +44,10 @@
                                 <input class="input" type="email" name="email" placeholder="Email" disabled value="{{Auth::user()->email}}">
                             </div>
                             <div class="form-group">
-                                <input class="input" type="text" name="address" placeholder="Địa chỉ" disabled  value="{{Auth::user()->adress}}">
+                                <input class="input" type="text" name="address" placeholder="Địa chỉ" disabled value="{{Auth::user()->adress}}">
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <input class="input" type="tel" name="tel" placeholder="Điện thoại" disabled value="{{Auth::user()->tel}}">
                         </div>
@@ -179,4 +179,11 @@
     </div>
     <!-- /SECTION -->
 </div>
+@else
+<div style="height: 400px;display: flex; align-items: center; justify-content: center;flex-direction: column;">
+    <h1 class="text-warning"> Bạn chưa có sản phẩm nào trong giỏ!</h1>
+    
+    <h4><a href="{{route('home')}}">quay lại trang chủ <i class="fa fa-arrow-right" aria-hidden="true"></i></a></h4>
+</div>
+@endif
 @endsection

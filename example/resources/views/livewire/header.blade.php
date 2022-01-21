@@ -84,7 +84,7 @@
                                             <h3 class="product-name"><a href="{{route('product-details',$cartItem->product_id)}}">{{mb_strimwidth($cartItem->product->name, 0, 35, "...");}}</a></h3>
                                             <h4 class="product-price"><span class="qty">{{$cartItem->quantity}}x</span> {{number_format($cartItem->product->promo_price,0, "," ,  ".")}}</h4>
                                         </div>
-                                        <button class="delete"><i class="fas fa-times" onclick="delCart(<?php echo ($cartItem->product_id) ?>)"></i></button>
+                                       
                                     </div>
                                     @endforeach
 
